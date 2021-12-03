@@ -1,142 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
     <title>Dokumentacija</title>
-    <style>
-        html,
-        body {
-            margin: 0;
-        }
+  </head>
 
-        table {
-            font-family: 'Times New Roman', Times, serif;
-            font-style: italic;
-            margin-top: 25px;
-        }
-
-        td {
-            padding-right: 30px;
-        }
-
-        p {
-            text-align: justify;
-
-        }
-
-        h3 {
-            text-align: center;
-        }
-    </style>
-</head>
-
-<body style="background-color: #494848;">
-    <div style="background-color: white; max-width: 1000px; margin:0 auto; padding: 75px; height:100%;">
-        <h1>
-            <center>Projektni zadatak iz Softverskog inženjerstva - AlphaBooking</center>
+  <body>
+    <div class="flex-container">
+      <aside id="sidebar">
+        <div class="menu-item">
+            <a href="https://trello.com/si202102teamalpha/" target="_blank">
+                <h3><i class="fab fa-trello fa-lg"></i>Trello Workspace</h3>
+            </a>
+        </div>
+        <div class="menu-item">
+          <a href="#">
+              <h3><i class="fas fa-home fa-lg"></i>Početna strana</h3>
+            </a>
+        </div>
+        
+        <div class="menu-item">
+          <a href="#1"><h3>1. Opis aplikacije i njenih funkcionalinosti</h3></a>
+        </div>
+        <div class="menu-item">
+          <a href="#2"><h3>2. Konceptualni model podataka projekta</h3></a>
+        </div>
+        <div class="menu-item">
+          <a href="#3"><h3>3. ER Dijagram baze podataka</h3></a>
+        </div>
+      </aside>
+      <section id="main-content">
+        <h1 class="heading-b" id="uvod">
+          Projektni zadatak iz Softverskog inženjerstva - AlphaBooking
         </h1>
         <hr>
-        <b><i>Učesnici:</i></b>
+        <br>
+        <b>Učesnici:</b>
         <table>
-            <tr>
-                <td>Veljko Lončarević</td>
-                <td>64/2019</td>
-            </tr>
-            <tr>
-                <td>Savo Šućurović</td>
-                <td>67/2019</td>
-            </tr>
-            <tr>
-                <td>Nemanja Conjić</td>
-                <td>75/2019</td>
-            </tr>
-            <tr>
-                <td>Bogdan Milojević</td>
-                <td>76/2019</td>
-            </tr>
-            <tr>
-                <td><a href="https://trello.com/si202102teamalpha" target="_blank">Trello Workspace</a></td>
-            </tr>
+          <tr>
+            <td>Veljko Lončarević</td>
+            <td>64/2019</td>
+          </tr>
+          <tr>
+            <td>Savo Šućurović</td>
+            <td>67/2019</td>
+          </tr>
+          <tr>
+            <td>Nemanja Conjić</td>
+            <td>75/2019</td>
+          </tr>
+          <tr>
+            <td>Bogdan Milojević</td>
+            <td>76/2019</td>
+          </tr>
         </table>
-        <hr>
-        <h3>
-            <center>1. Opis aplikacije i njenih funkcionalinosti</center>
+        <hr />
+        <h3 id="1">
+          <center>1. Opis aplikacije i njenih funkcionalinosti</center>
         </h3>
-        <p>Aplikacija zvana "AlphaBooking<sup>TM</sup>" sastojaće se iz dva dela: korisničkog panela,
-            kojem će se pristupati koristeći jedan od dostupnih web pretraživača, i admin panela, desktop
-            programa specijalne namene za administrativno upravljanje sadržajem same aplikacije.</p>
+        <p>
+          Aplikacija zvana "AlphaBooking<sup>TM</sup>" sastojaće se iz dva dela:
+          korisničkog panela, kojem će se pristupati koristeći jedan od
+          dostupnih web pretraživača, i admin panela, desktop programa
+          specijalne namene za administrativno upravljanje sadržajem same
+          aplikacije.
+        </p>
 
-        <p>Korisniku će, nakon registracije ili prijave na veb aplikaciji, biti dostupne dve mogućnosti:
-            iznajmljivanje apartmana, u svojstvu vlasnika nekretnine i u svojstvu iznajmljivača. Korisnik će moći
-            da pregleda listu dostupnih stambenih prostora za iznajmljivanje, kao i da kreira svoj listing (uz
-            naknadne procese verifikacije).</p>
+        <p>
+          Korisniku će, nakon registracije ili prijave na veb aplikaciji, biti
+          dostupne dve mogućnosti: iznajmljivanje apartmana, u svojstvu vlasnika
+          nekretnine i u svojstvu iznajmljivača. Korisnik će moći da pregleda
+          listu dostupnih stambenih prostora za iznajmljivanje, kao i da kreira
+          svoj listing (uz naknadne procese verifikacije).
+        </p>
 
-        <p>Korisniku je neophodno omogućiti funkcionalnosti kao što su pretraga apartmana po lokaciji,
-            sortiranje po raznim kriterijumima kao što su cena, datum dostupnosti, broju soba, kreveta,
-            dostupnosti interneta, itd. Korisnik koji želi da iznajmi određeni prostor, mora ući u sam listing,
-            odabrati dane u kojima želi da zakaže prostor, nakon čega će biti obavešten o ceni, i odabrati jednu
-            od različitih formi za plaćanje (PayPal, kreditna/debitna kartica).</p>
+        <p>
+          Korisniku je neophodno omogućiti funkcionalnosti kao što su pretraga
+          apartmana po lokaciji, sortiranje po raznim kriterijumima kao što su
+          cena, datum dostupnosti, broju soba, kreveta, dostupnosti interneta,
+          itd. Korisnik koji želi da iznajmi određeni prostor, mora ući u sam
+          listing, odabrati dane u kojima želi da zakaže prostor, nakon čega će
+          biti obavešten o ceni, i odabrati jednu od različitih formi za
+          plaćanje (PayPal, kreditna/debitna kartica).
+        </p>
 
-        <p>Korisnici koji žele da daju svoj stan na izdavanje moraju proći kroz dodatni proces registracije kao
-            overenog stanodavca partnera Team Alpha<sup>TM</sup> korporacije. Nakon uspešne registracije partnera
-            stanodavca, dobijaju mogućnost objavljivanja svojih listinga, gde će morati detaljno navesti
-            karakteristike prostora koje žele da iznajme.</p>
+        <p>
+          Korisnici koji žele da daju svoj stan na izdavanje moraju proći kroz
+          dodatni proces registracije kao overenog stanodavca partnera Team
+          Alpha<sup>TM</sup> korporacije. Nakon uspešne registracije partnera
+          stanodavca, dobijaju mogućnost objavljivanja svojih listinga, gde će
+          morati detaljno navesti karakteristike prostora koje žele da iznajme.
+        </p>
 
-        <p>Nakon što korisnik uspešno plati rentu i iznajmi stambeni prostor, partner stanodavac mora biti
-            obavešten o toj transakciji i novac mu mora biti prosleđen u digitalni novčanik, odakle može novac
-            prebaciti na svoj račun.</p>
+        <p>
+          Nakon što korisnik uspešno plati rentu i iznajmi stambeni prostor,
+          partner stanodavac mora biti obavešten o toj transakciji i novac mu
+          mora biti prosleđen u digitalni novčanik, odakle može novac prebaciti
+          na svoj račun.
+        </p>
 
-        Dodatne funkcionalinosti:
+        <p>Dodatne funkcionalinosti:</p>
         <ul>
-            <li>Otkazivanje rente (s određenim kriterijumima)</li>
-            <li>Pomeranje rente</li>
-            <li>Zahtev za refundiranje novca</li>
-            <li>Recenzije korisnika i stanodavca, kao i sistem bodovanja (1-5)</li>
+          <li>Otkazivanje rente (s određenim kriterijumima)</li>
+          <li>Pomeranje rente</li>
+          <li>Zahtev za refundiranje novca</li>
+          <li>
+            Recenzije korisnika i stanodavca, kao i sistem bodovanja (1-5)
+          </li>
         </ul>
 
+        <hr />
+
+        <h3 id="2">2. Konceptualni model podataka projekta</h3>
+
+        <p>
+          Pre učestvovanja u samoj aplikaciji, neophodno je da budući korisnik
+          prvo kreira svoj nalog klikom na dugme "Registracija" na početnoj
+          strani aplikacije. Nakon popunjene forme, gde korisnik unosi podatke
+          kao što su imejl adresa, broj telefona, korisničko ime, lozinka, itd.,
+          kreira se novi nalog na koji se korisnik može prijaviti putem forme za
+          prijavu, koja se takođe može pronaći na početnoj stranici. Korisnik
+          može učestvovati u dve uloge: Kao stanodavac i kao podstanar. Overeni
+          partner Team Alpha projekta (u daljem tekstu: Stanodavac) prvo mora
+          popuniti posebnu formu za registraciju partnerstva, gde mora priložiti
+          očitanu kopiju lične karte kao prilog, kao i broj bankovnog računa gde
+          će biti prosleđene uplate.
+        </p>
+        <p>
+          Nakon što stanodavac postane overeni partner (tj. njegova prijava bude
+          odobrena), dobija mogućnost da doda svoje stanove/apartmane/sobe/kuće
+          (u daljem tekstu: stambeni prostor). Neophodno je navesti tražene
+          karakteristike stambenog prostora, kao što su kvadratura, broj soba,
+          broj kreveta, dostupnost interneta, kablovske, itd. Dodavanjem novog
+          stana za stanodavca otvara se mogućnost kreiranja listinga, gde će
+          moći proizvoljno da odredi cenu noćenja, depozita, kao i dostupne
+          datume.
+        </p>
+        <p>
+          S druge strane, korisnik u ulozi podstanara (u daljem tekstu:
+          podstanar) može odabrati da iznajmi željeni stambeni prostor iz
+          listinga na vreme određeno putem opcija selekcije datuma na strani
+          listinga, koje je u okvirima dostupnosti koje određuje stanodavac.
+          Neophodno je uneti detalje željenog načina plaćanja (Kreditna kartica,
+          paypal nalog, western union) pre samog iznajmljivanja. Kada je naplata
+          potvrđena, kreira se renta, koja sadrži izračunate podatke kao što su
+          plaćena cena (cena noćena * broj dana + depozit), kao i podatke o
+          datumima (početni datum, krajnji datum). Korisniku je takođe potrebno
+          omogućiti slanje zahteva kao što su pomeranje termina, refundacije,
+          prijavljivanje problema, itd. (Dodatne funkcionalnosti)
+        </p>
+        <p>
+          Administrator može videti sve transakcije, sve korisnike, sve
+          listinge, može kreirati/ukljanjati/menjati listinge. Može upravljati
+          korisničkim nalozima (brisati ih, odobravati zahteve za registraciju
+          stanodavaca, banovati ih, itd.).
+        </p>
+        <br>
         <hr>
-
-        <h3>2. Konceptualni model podataka projekta</h3>
-
-        <p> Pre učestvovanja u samoj aplikaciji, neophodno je da budući korisnik prvo kreira svoj nalog klikom na dugme
-            "Registracija" na početnoj strani aplikacije.
-            Nakon popunjene forme, gde korisnik unosi podatke kao što su imejl adresa, broj telefona, korisničko ime,
-            lozinka, itd.,
-            kreira se novi nalog na koji se korisnik može prijaviti putem forme za prijavu, koja se takođe može pronaći
-            na početnoj stranici.
-            Korisnik može učestvovati u dve uloge: Kao stanodavac i kao podstanar. Overeni partner Team Alpha projekta
-            (u daljem tekstu: Stanodavac) prvo mora
-            popuniti posebnu formu za registraciju partnerstva, gde mora priložiti očitanu kopiju lične karte kao
-            prilog, kao i broj bankovnog računa gde će biti
-            prosleđene uplate. </p>
-        <p>Nakon što stanodavac postane overeni partner (tj. njegova prijava bude odobrena), dobija mogućnost da doda
-            svoje stanove/apartmane/sobe/kuće (u daljem
-            tekstu: stambeni prostor). Neophodno je navesti tražene karakteristike stambenog prostora, kao što su
-            kvadratura, broj soba, broj kreveta, dostupnost
-            interneta, kablovske, itd. Dodavanjem novog stana za stanodavca otvara se mogućnost kreiranja listinga, gde
-            će moći proizvoljno da odredi cenu noćenja,
-            depozita, kao i dostupne datume.</p>
-        <p>S druge strane, korisnik u ulozi podstanara (u daljem tekstu: podstanar) može odabrati da iznajmi željeni
-            stambeni prostor iz listinga na vreme određeno
-            putem opcija selekcije datuma na strani listinga, koje je u okvirima dostupnosti koje određuje stanodavac.
-            Neophodno je uneti detalje željenog načina
-            plaćanja (Kreditna kartica, paypal nalog, western union) pre samog iznajmljivanja. Kada je naplata
-            potvrđena, kreira se renta, koja sadrži izračunate
-            podatke kao što su plaćena cena (cena noćena * broj dana + depozit), kao i podatke o datumima (početni
-            datum, krajnji datum).
-            Korisniku je takođe potrebno omogućiti slanje zahteva kao što su pomeranje termina, refundacije,
-            prijavljivanje problema, itd. (Dodatne funkcionalnosti)</p>
-        <p>Administrator može videti sve transakcije, sve korisnike, sve listinge, može kreirati/ukljanjati/menjati
-            listinge. Može upravljati korisničkim nalozima
-            (brisati ih, odobravati zahteve za registraciju stanodavaca, banovati ih, itd.).</p>
-
-        <hr>
-        <h3>3. ER Dijagram baze podataka</h3>
-        <img src="ER Dijagram.png" style="max-width: 90%; margin: 0 auto; display: block;">
+        <h3 id="3">3. ER Dijagram baze podataka</h3>
+        <img
+          src="ER Dijagram.png"
+          style="max-width: 90%; margin: 0 auto; display: block"
+        />
+      </section>
     </div>
-</body>
-
+  </body>
 </html>
