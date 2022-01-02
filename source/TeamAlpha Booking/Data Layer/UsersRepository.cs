@@ -1,0 +1,52 @@
+﻿using System;
+using System.Data;
+using System.Data.SqlClient;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Dapper; // Dapper je ORM alat koji olaksava rukovanje bazom
+using Data_Layer.Models;
+
+namespace Data_Layer
+{
+    public class UsersRepository
+    {
+        public void InsertUser(Korisnik user) // CREATE
+        {
+            String Query = "INSERT INTO Korisnici VALUES(@Password, @FirstName, @LastName,  @Email, @BirthDate, @PhoneNumber, @Role)";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlfaDB")))
+            {
+                DynamicParameters QueryParameters = new DynamicParameters(); // parametrizovan upit je otporan na SQL injection napad
+
+                QueryParameters.Add("@Password", user.Lozinka);
+                QueryParameters.Add("@FirstName", user.Ime);
+                QueryParameters.Add("@LastName", user.Prezime);
+                QueryParameters.Add("@Email", user.Email);
+                QueryParameters.Add("@BirthDate", user.Br_telefona);
+                QueryParameters.Add("@Role", user.Stanodavac);
+                
+                connection.Execute(Query, QueryParameters);
+            }
+            
+        }
+
+        public List<Korisnik> GetAllUsers() // READ
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateUserInfo(Korisnik user) // UPDATE
+        {
+            throw new NotImplementedException();
+        }
+
+        public void RemoveUser (int UserId) // DELETE
+        {
+            throw new NotImplementedException();
+        }
+
+       
+    }
+}
