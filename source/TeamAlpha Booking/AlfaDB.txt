@@ -40,7 +40,7 @@ CREATE TABLE [dbo].[Rente] (
     [Id_Rente]             INT           IDENTITY (1, 1) NOT NULL,
     [Datum_pocetka]  DATETIME      NOT NULL,
     [Broj_dana]      INT           NOT NULL,
-    [Nacin_placanja] NVARCHAR (50) NOT NULL,
+    [Nacin_placanja] BIT NOT NULL,
     [Broj_kartice]   NVARCHAR (50) NULL,
     [Id_Korisnika] INT NOT NULL, 
     [Id_Stana] INT NOT NULL, 
