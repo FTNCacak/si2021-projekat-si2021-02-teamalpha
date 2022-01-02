@@ -1,0 +1,52 @@
+Korisnici :
+
+CREATE TABLE [dbo].[Korisnici] (
+    [Id_Korisnika]    INT           IDENTITY (1, 1) NOT NULL,
+    [Lozinka]        NVARCHAR (50) NOT NULL,
+    [Ime]            NVARCHAR (50) NOT NULL,
+    [Prezime ]       NVARCHAR (50) NOT NULL,
+    [Email]          NVARCHAR (50) NOT NULL,
+    [Datum_rodjenja] DATETIME      NOT NULL,
+    [Broj_telefona]  NVARCHAR (50) NULL,
+    [Stanodavac]     NVARCHAR (50) NULL,
+    PRIMARY KEY CLUSTERED ([Id_Korisnika] ASC)
+);
+
+
+Stanovi : 
+
+
+CREATE TABLE [dbo].[Stanovi] (
+    [Id_Stana]        INT           IDENTITY (1, 1) NOT NULL,
+    [Mesto]          NVARCHAR (50) NOT NULL,
+    [Adresa]         NVARCHAR (50) NOT NULL,
+    [Broj_soba]      INT           NOT NULL,
+    [Kvadratura]     INT           NOT NULL,
+    [Postanski_broj] INT           NOT NULL,
+    [Cena_nocenja]   FLOAT (53)    NOT NULL,
+    [Depozit]        FLOAT (53)    NOT NULL,
+    [Broj_sprata]    INT           NULL,
+    [Id_Korisnika] INT NOT NULL, 
+    PRIMARY KEY CLUSTERED ([Id_Stana] ASC, Id_Korisnika),
+    CONSTRAINT [FK_id_korisnika] FOREIGN KEY ([Id_Korisnika]) REFERENCES [dbo].[Korisnici] ([Id_Korisnika])
+);
+
+
+
+
+Rente :
+
+CREATE TABLE [dbo].[Rente] (
+    [Id_Rente]             INT           IDENTITY (1, 1) NOT NULL,
+    [Datum_pocetka]  DATETIME      NOT NULL,
+    [Broj_dana]      INT           NOT NULL,
+    [Nacin_placanja] NVARCHAR (50) NOT NULL,
+    [Broj_kartice]   NVARCHAR (50) NULL,
+    [Id_Korisnika] INT NOT NULL, 
+    [Id_Stana] INT NOT NULL, 
+    [Id_Stanodavca] INT NOT NULL, 
+    PRIMARY KEY CLUSTERED ([Id_Rente] ASC, Id_Korisnika, Id_Stana, Id_Stanodavca),
+    CONSTRAINT [FK_Rente_Korisnici] FOREIGN KEY ([Id_Korisnika]) REFERENCES [dbo].[Korisnici] ([Id_Korisnika]),
+    CONSTRAINT [FK_Rente_Stana] FOREIGN KEY ([Id_Stana]) REFERENCES [dbo].[Stanovi] ([Id_Stana]), 
+    CONSTRAINT [FK_Rente_Stanodavca] FOREIGN KEY ([Id_Stanodavca]) REFERENCES [Stanovi]([Id_Korisnika])
+);
