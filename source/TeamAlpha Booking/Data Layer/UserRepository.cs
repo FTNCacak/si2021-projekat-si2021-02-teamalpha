@@ -42,7 +42,13 @@ namespace Data_Layer
 
         public int UpdateUserData(Korisnik UpdatedUser) // UPDATE, must pass new user object with updated data
         {
-            String UpdateQuery = "UPDATE Korisnici SET Lozinka = @Password, Email = @Email, Ime = @FirstName, Prezime = @LastName, Datum_rodjenja = @BirthDate, Stanodvac = @Role WHERE Id = @Id";
+            String UpdateQuery = "UPDATE Korisnici SET " +
+                "Lozinka = @Password, " +
+                "Email = @Email, " +
+                "Ime = @FirstName, " +
+                "Prezime = @LastName," +
+                "Datum_rodjenja = @BirthDate, " +
+                "Stanodvac = @Role WHERE Id = @Id";
 
             using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
             {
@@ -63,7 +69,7 @@ namespace Data_Layer
 
         public int RemoveUser (int UserId) // DELETE
         {
-            String DeleteQuery = "DELETE Korisnici Id_Korisnika = @Id";
+            String DeleteQuery = "DELETE Korisnici WHERE Id_Korisnika = @Id";
 
             using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
             {
