@@ -16,7 +16,7 @@ namespace Data_Layer
         {
             String InsertQuery = "INSERT INTO Korisnici VALUES(@Password, @FirstName, @LastName,  @Email, @BirthDate, @PhoneNumber, @Role)";
 
-            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlfaDB")))
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
             {
                 var QueryParameters = new DynamicParameters(); // parameterized query to prevent SQL injection
 
@@ -34,7 +34,7 @@ namespace Data_Layer
 
         public List<Korisnik> GetAllUsers() // READ
         {
-            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlfaDB")))
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
             {
                 return connection.Query<Korisnik>("SELECT * FROM Korisnici").ToList();
             }
@@ -44,7 +44,7 @@ namespace Data_Layer
         {
             String UpdateQuery = "UPDATE Korisnici SET Lozinka = @Password, Email = @Email, Ime = @FirstName, Prezime = @LastName, Datum_rodjenja = @BirthDate, Stanodvac = @Role WHERE Id = @Id";
 
-            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlfaDB")))
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
             {
                 var QueryParameters = new DynamicParameters();
 
@@ -65,7 +65,7 @@ namespace Data_Layer
         {
             String DeleteQuery = "DELETE Korisnici Id_Korisnika = @Id";
 
-            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlfaDB")))
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
             {
                 return connection.Execute(DeleteQuery, new {Id = UserId});
             }
