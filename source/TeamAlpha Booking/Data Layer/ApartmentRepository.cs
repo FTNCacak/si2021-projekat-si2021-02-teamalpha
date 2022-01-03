@@ -12,7 +12,7 @@ namespace Data_Layer
 {
     public class ApartmentRepository
     {
-        public int InsertApartment(Stan apartment) // CREATE
+        public int InsertApartment(Apartment apartment) // CREATE
         {
             String InsertQuery = "INSERT INTO Stanovi VALUES(@City, @Address, @NoRooms,  @Size, @PostNumber, @PricePerNight, @Deposit, @FloorNo, @LandlordId)";
 
@@ -22,30 +22,29 @@ namespace Data_Layer
 
                 QueryParameters.Add("@City", apartment.Mesto);
                 QueryParameters.Add("@Address", apartment.Adresa);
-                QueryParameters.Add("@NoRooms", apartment.Br_soba);
+                QueryParameters.Add("@NoRooms", apartment.Broj_soba);
                 QueryParameters.Add("@Size", apartment.Kvadratura);
-                QueryParameters.Add("@PostNumber", apartment.Pos_br);
-                QueryParameters.Add("@PricePerNight", apartment.Cena);
+                QueryParameters.Add("@PostNumber", apartment.Postanski_broj);
+                QueryParameters.Add("@PricePerNight", apartment.Cena_nocenja);
                 QueryParameters.Add("@Deposit", apartment.Depozit);
-                QueryParameters.Add("@FloorNo", apartment.Br_sprata);
-                QueryParameters.Add("@LandlordId", apartment.Id_korisnika);
+                QueryParameters.Add("@FloorNo", apartment.Broj_sprata);
+                QueryParameters.Add("@LandlordId", apartment.Id_Korisnika);
 
                 return connection.Execute(InsertQuery, QueryParameters); // Execute method provided by Dapper
             }
         }
 
-        public List<Stan> GetAllApartments() // READ
+        public List<Apartment> GetAllApartments() // READ
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
             {
-                return connection.Query<Stan>("SELECT * FROM Stanovi").ToList();
+                return connection.Query<Apartment>("SELECT * FROM Stanovi").ToList();
             }
         }
 
-        public int UpdateApartmentData(Stan apartment) // UPDATE, must pass new apartment object with updated data
+        public int UpdateApartmentData(Apartment apartment) // UPDATE, must pass new apartment object with updated data
         {
             String UpdateQuery = "UPDATE Stanovi SET " +
-                "Id_Stana = @ApartmentId," +
                 "Mesto = @City," +
                 "Adresa = @Address," +
                 "Broj_soba = @NoRooms," +
@@ -61,16 +60,16 @@ namespace Data_Layer
             {
                 var QueryParameters = new DynamicParameters();
 
-                QueryParameters.Add("@ApartmentId", apartment.Stan_ID);
+                QueryParameters.Add("@ApartmentId", apartment.Id_Stana);
                 QueryParameters.Add("@City", apartment.Mesto);
                 QueryParameters.Add("@Address", apartment.Adresa);
-                QueryParameters.Add("@NoRooms", apartment.Br_soba);
+                QueryParameters.Add("@NoRooms", apartment.Broj_soba);
                 QueryParameters.Add("@Size", apartment.Kvadratura);
-                QueryParameters.Add("@PostNumber", apartment.Pos_br);
-                QueryParameters.Add("@PricePerNight", apartment.Cena);
+                QueryParameters.Add("@PostNumber", apartment.Postanski_broj);
+                QueryParameters.Add("@PricePerNight", apartment.Cena_nocenja);
                 QueryParameters.Add("@Deposit", apartment.Depozit);
-                QueryParameters.Add("@FloorNo", apartment.Br_sprata);
-                QueryParameters.Add("@LandlordId", apartment.Id_korisnika);
+                QueryParameters.Add("@FloorNo", apartment.Broj_sprata);
+                QueryParameters.Add("@LandlordId", apartment.Id_Korisnika); // make sure to pass correct id
 
                 return connection.Execute(UpdateQuery, QueryParameters);
             }
