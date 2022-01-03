@@ -12,7 +12,7 @@ namespace Data_Layer
 {
     public class UserRepository
     {
-        public int InsertUser(Korisnik user) // CREATE
+        public int InsertUser(User user) // CREATE
         {
             String InsertQuery = "INSERT INTO Korisnici VALUES(@Password, @FirstName, @LastName,  @Email, @BirthDate, @PhoneNumber, @Role)";
 
@@ -24,7 +24,7 @@ namespace Data_Layer
                 QueryParameters.Add("@FirstName", user.Ime);
                 QueryParameters.Add("@LastName", user.Prezime);
                 QueryParameters.Add("@Email", user.Email);
-                QueryParameters.Add("@PhoneNumber", user.Br_telefona);
+                QueryParameters.Add("@PhoneNumber", user.Broj_telefona;
                 QueryParameters.Add("@BirthDate", user.Datum_rodjenja);
                 QueryParameters.Add("@Role", user.Stanodavac);
                 
@@ -32,15 +32,15 @@ namespace Data_Layer
             }
         }
 
-        public List<Korisnik> GetAllUsers() // READ
+        public List<User> GetAllUsers() // READ
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
             {
-                return connection.Query<Korisnik>("SELECT * FROM Korisnici").ToList();
+                return connection.Query<User>("SELECT * FROM Korisnici").ToList();
             }
         }
 
-        public int UpdateUserData(Korisnik UpdatedUser) // UPDATE, must pass new user object with updated data
+        public int UpdateUserData(User UpdatedUser) // UPDATE, must pass new user object with updated data
         {
             String UpdateQuery = "UPDATE Korisnici SET " +
                 "Lozinka = @Password, " +
@@ -58,10 +58,10 @@ namespace Data_Layer
                 QueryParameters.Add("@FirstName", UpdatedUser.Ime);
                 QueryParameters.Add("@LastName", UpdatedUser.Prezime);
                 QueryParameters.Add("@Email", UpdatedUser.Email);
-                QueryParameters.Add("@PhoneNumber", UpdatedUser.Br_telefona);
+                QueryParameters.Add("@PhoneNumber", UpdatedUser.Broj_telefona);
                 QueryParameters.Add("@BirthDate", UpdatedUser.Datum_rodjenja);
                 QueryParameters.Add("@Role", UpdatedUser.Stanodavac);
-                QueryParameters.Add("@Id", UpdatedUser.Korisnik_ID); // make sure to pass correct ID
+                QueryParameters.Add("@Id", UpdatedUser.Id_Korisnika); // make sure to pass correct ID
 
                 return connection.Execute(UpdateQuery, QueryParameters);
             }
