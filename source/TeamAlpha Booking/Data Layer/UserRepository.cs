@@ -5,20 +5,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Dapper; // Dapper je ORM alat koji olaksava rukovanje bazom
+using Dapper; // Dapper je ORM (object–relational mapping) alat koji olaksava mapiranje instanci entiteta baze u objekte
 using Data_Layer.Models;
 
 namespace Data_Layer
 {
-    public class UsersRepository
+    public class UserRepository
     {
-        public void InsertUser(Korisnik user) // CREATE
+        public int InsertUser(Korisnik user) // CREATE
         {
             String Query = "INSERT INTO Korisnici VALUES(@Password, @FirstName, @LastName,  @Email, @BirthDate, @PhoneNumber, @Role)";
 
             using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlfaDB")))
             {
-                DynamicParameters QueryParameters = new DynamicParameters(); // parametrizovan upit je otporan na SQL injection napad
+                var QueryParameters = new DynamicParameters(); // parametrizovan upit je otporan na SQL injection napad,
 
                 QueryParameters.Add("@Password", user.Lozinka);
                 QueryParameters.Add("@FirstName", user.Ime);
@@ -27,7 +27,7 @@ namespace Data_Layer
                 QueryParameters.Add("@BirthDate", user.Br_telefona);
                 QueryParameters.Add("@Role", user.Stanodavac);
                 
-                connection.Execute(Query, QueryParameters);
+                return connection.Execute(Query, QueryParameters); // Execute metodu obezbedjuje dapper
             }
             
         }
@@ -46,7 +46,6 @@ namespace Data_Layer
         {
             throw new NotImplementedException();
         }
-
-       
+ 
     }
 }
