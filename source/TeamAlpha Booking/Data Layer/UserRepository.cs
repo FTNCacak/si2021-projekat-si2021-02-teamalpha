@@ -18,13 +18,15 @@ namespace Data_Layer
 
             using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlfaDB")))
             {
+          
                 var QueryParameters = new DynamicParameters(); // parametrizovan upit je otporan na SQL injection napad,
 
                 QueryParameters.Add("@Password", user.Lozinka);
                 QueryParameters.Add("@FirstName", user.Ime);
                 QueryParameters.Add("@LastName", user.Prezime);
                 QueryParameters.Add("@Email", user.Email);
-                QueryParameters.Add("@BirthDate", user.Br_telefona);
+                QueryParameters.Add("@PhoneNumber", user.Br_telefona);
+                QueryParameters.Add("@BirthDate", user.Datum_rodjenja);
                 QueryParameters.Add("@Role", user.Stanodavac);
                 
                 return connection.Execute(Query, QueryParameters); // Execute metodu obezbedjuje dapper
