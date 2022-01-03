@@ -14,12 +14,11 @@ namespace Data_Layer
     {
         public int InsertUser(Korisnik user) // CREATE
         {
-            String Query = "INSERT INTO Korisnici VALUES(@Password, @FirstName, @LastName,  @Email, @BirthDate, @PhoneNumber, @Role)";
+            String InsertQuery = "INSERT INTO Korisnici VALUES(@Password, @FirstName, @LastName,  @Email, @BirthDate, @PhoneNumber, @Role)";
 
             using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlfaDB")))
             {
-          
-                var QueryParameters = new DynamicParameters(); // parametrizovan upit je otporan na SQL injection napad,
+                var QueryParameters = new DynamicParameters(); // parameterized query to prevent SQL injection
 
                 QueryParameters.Add("@Password", user.Lozinka);
                 QueryParameters.Add("@FirstName", user.Ime);
@@ -29,25 +28,47 @@ namespace Data_Layer
                 QueryParameters.Add("@BirthDate", user.Datum_rodjenja);
                 QueryParameters.Add("@Role", user.Stanodavac);
                 
-                return connection.Execute(Query, QueryParameters); // Execute metodu obezbedjuje dapper
+                return connection.Execute(InsertQuery, QueryParameters); // Execute method provided by Dapper
             }
-            
         }
 
         public List<Korisnik> GetAllUsers() // READ
         {
-            throw new NotImplementedException();
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlfaDB")))
+            {
+                return connection.Query<Korisnik>("SELECT * FROM Korisnici").ToList();
+            }
         }
 
-        public void UpdateUserInfo(Korisnik user) // UPDATE
+        public int UpdateUserData(Korisnik UpdatedUser) // UPDATE, must pass new user object with updated data
         {
-            throw new NotImplementedException();
+            String UpdateQuery = "UPDATE Korisnici SET Lozinka = @Password, Email = @Email, Ime = @FirstName, Prezime = @LastName, Datum_rodjenja = @BirthDate, Stanodvac = @Role WHERE Id = @Id";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlfaDB")))
+            {
+                var QueryParameters = new DynamicParameters();
+
+                QueryParameters.Add("@Password", UpdatedUser.Lozinka);
+                QueryParameters.Add("@FirstName", UpdatedUser.Ime);
+                QueryParameters.Add("@LastName", UpdatedUser.Prezime);
+                QueryParameters.Add("@Email", UpdatedUser.Email);
+                QueryParameters.Add("@PhoneNumber", UpdatedUser.Br_telefona);
+                QueryParameters.Add("@BirthDate", UpdatedUser.Datum_rodjenja);
+                QueryParameters.Add("@Role", UpdatedUser.Stanodavac);
+                QueryParameters.Add("@Id", UpdatedUser.Korisnik_ID); // make sure to pass correct ID
+
+                return connection.Execute(UpdateQuery, QueryParameters);
+            }
         }
 
-        public void RemoveUser (int UserId) // DELETE
+        public int RemoveUser (int UserId) // DELETE
         {
-            throw new NotImplementedException();
-        }
- 
+            String DeleteQuery = "DELETE Korisnici Id_Korisnika = @Id";
+
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlfaDB")))
+            {
+                return connection.Execute(DeleteQuery, new {Id = UserId});
+            }
+        } 
     }
 }
