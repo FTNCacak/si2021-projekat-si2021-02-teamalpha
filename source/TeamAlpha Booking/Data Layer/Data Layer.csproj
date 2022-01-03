@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ApartmentRepository.cs" />
     <Compile Include="ConnectionStringProvider.cs" />
     <Compile Include="Models\Korisnik.cs" />
     <Compile Include="Models\Renta.cs" />
