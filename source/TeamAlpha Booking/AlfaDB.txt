@@ -47,6 +47,5 @@ CREATE TABLE [dbo].[Rente] (
     [Id_Stanodavca] INT NOT NULL, 
     PRIMARY KEY CLUSTERED ([Id_Rente] ASC, Id_Korisnika, Id_Stana, Id_Stanodavca),
     CONSTRAINT [FK_Rente_Korisnici] FOREIGN KEY ([Id_Korisnika]) REFERENCES [dbo].[Korisnici] ([Id_Korisnika]),
-    CONSTRAINT [FK_Rente_Stana] FOREIGN KEY ([Id_Stana]) REFERENCES [dbo].[Stanovi] ([Id_Stana]), 
-    CONSTRAINT [FK_Rente_Stanodavca] FOREIGN KEY ([Id_Stanodavca]) REFERENCES [Stanovi]([Id_Korisnika])
+	CONSTRAINT [FK_Stanovi] FOREIGN KEY ([Id_Stana],[Id_Stanodavca]) REFERENCES Stanovi ([Id_Stana], [Id_Korisnika])
 );
