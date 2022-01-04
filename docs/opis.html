@@ -30,7 +30,7 @@
           <a href="#2"><h3>2. Konceptualni model podataka projekta</h3></a>
         </div>
         <div class="menu-item">
-          <a href="#3"><h3>3. ER Dijagram baze podataka</h3></a>
+          <a href="#3"><h3>3. Model podataka, biznis pravila</h3></a>
         </div>
       </aside>
       <section id="main-content">
@@ -161,11 +161,74 @@
         </p>
         <br>
         <hr>
-        <h3 id="3">3. ER Dijagram baze podataka</h3>
-        <img
-          src="ER Dijagram.png"
-          style="max-width: 90%; margin: 0 auto; display: block"
-        />
+        <h3 id="3">3. Model podataka, biznis pravila</h3>
+        <figure>
+          <img
+            src="ER Dijagram.png"
+            style="max-width: 90%; margin: 0 auto; display: block"
+          />
+          <figcaption>Slika 1: ER Dijagram modela podataka</figcaption>
+        </figure>
+        <p>
+          Model podataka koji TeamAlpha Booking koristi sastoji se iz tri entiteta: Korisnik, 
+          Stan i Renta (Slika 1). Entiteti Korisnik i Stan povezani su kroz jedan-prema-više (1:M) 
+          opcionalno-mandatornu bariranu vezu. Dodatna biznis pravila te veze:
+          <ul>
+            <li>Kako bi korisnik mogao da izda stan, mora biti overeni stanodavac partner kompanije TeamAlpha. </li>
+            <li>Provera statusa korisnika (da li je stanodavac ili ne) vrši se preko atributa Stanodavac entiteta Korisnik.</li>
+            <li>U slučaju da korisnik nije stanodavac, funkcija izdavanja stanova biće mu nedostupna.</li>
+          </ul>  
+        </p>
+        <p>
+          Entiteti Korisnik i Renta povezani su takođe opcionalno-mandatornom jedan-prema-više (1:M) bariranom vezom, gde
+          Renta predstavlja fakturu određenog perioda iznajmljivanja stana. Za ovu vezu važe sledeća biznis pravila, koja je 
+          potrebno implementirati u kodu:
+          <ul>
+            <li>Korisnik može iznajmiti stan nezavisno od toga da li je stanodavac ili ne.</li>
+            <li>Takođe, stanodavac može sam iznajmiti svoj stan na određeni period vremena.</li>
+            <li>Način plaćanja mora biti ili keš ili kartica.</li>
+            <li>U slučaju da je izabrana kartica, potrebno je uneti broj kartice, CCV broj od tri cifre, ime na kartici, kao i rok isteka kartice.</li>
+            <li>Od tih podataka, pamte se samo poslednje 4 cifre kartice.</li>
+            <li>Ukoliko je odabran keš kao način plaćanja, nije neophodno uneti broj kartice.</li>
+          </ul>
+        </p>
+        <p>
+          Entiteti Stan i Renta povezani su putem opcionalno-mandatorne jedan-prema-više (1:M) barirane veze.
+          Renta u suštini predstavlja međuvezu između entiteta Stan i Korisnik, te omogućava da jedan korisnik iznajmi
+          više stanova, kao i da jedan stan bude iznajmljen većem broju korisnika.
+          Naravno, i za ovu vezu postoje određena biznis pravila, koja se moraju implementirati putem koda:
+          <ul>
+            <li>Jedan stan može biti izdat na određeni vremenski period, naznačen atributima Datum početka i Broj dana.</li>
+            <li>Isti stan ne može biti ponovo izdat u tom vremenskom periodu.</li>
+            <li>Neophodno je naznačiti dostupnost stana, kao i onemogućiti izdavanje u već zauzetim terminima.</li>
+            <li>Ukupna cena rente izveden je atribut i računa se uz pomoć sledeće formule: Cena noćena * Broj dana + Depozit.</li>
+          </ul>
+        </p>
+        <p>ER Dijagram preveden u ERdish: 
+          <ul>
+            <li>KORISNIK može da izdaje jedan ili više stanova.</li>
+            <li>STAN se mora izdati od jednog i samo jednog korisnika.</li>
+            <li>KORISNIK može da uzme u zakup jednu ili više renti.</li>
+            <li>RENTA se mora uzeti u zakup od strane jednog I samo jednog korisnika.</li>
+            <li>STAN se može izdati na jednu ili više renti.</li>
+            <li>RENTA se mora izdati za jedan i samo jedan stan.</li>
+          </ul>
+        </p>
+        <figure>
+          <img
+            src="Šema Relacija.png"
+            style="max-width: 90%; margin: 0 auto; display: block"
+          />
+          <figcaption>Slika 2: Šema relacija</figcaption>
+        </figure>
+        <h4>
+          Šema relacija (+Slika 2):
+        </h4>
+        <p>
+          KORISNICI(<b>Id_Korisnika#</b>, Lozinka, Ime, Prezime, Email, Datum_rodjenja, Broj_telefona, Stanodavac)<br>
+          STANOVI(<b>Id_Stana#, <u>Id_Korisnika#</u></b>, Mesto, Adresa, Broj_soba, Kvadratura, Postanski_broj, Cena_nocenja, Depozit, Broj_sprata)<br>
+          RENTE(<b>Id_Rente#, <u>Id_Stanodavca#, Id_Stana#, Id_Korisnika#</u></b>, Datum_pocetka, Broj_dana, Nacin_placanja, Broj_kartice)<br>
+        </p>
       </section>
     </div>
   </body>
