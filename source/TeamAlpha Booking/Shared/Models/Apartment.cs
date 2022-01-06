@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Data_Layer.Models
+namespace Shared.Models
 {
     public class Apartment
     {
