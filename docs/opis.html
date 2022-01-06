@@ -32,6 +32,9 @@
         <div class="menu-item">
           <a href="#3"><h3>3. Model podataka, biznis pravila</h3></a>
         </div>
+        <div class="menu-item">
+          <a href="#4"><h3>4. Model klasa</h3></a>
+        </div>
       </aside>
       <section id="main-content">
         <h1 class="heading-b" id="uvod">
@@ -229,6 +232,20 @@
           STANOVI(<b>Id_Stana#, <u>Id_Korisnika#</u></b>, Mesto, Adresa, Broj_soba, Kvadratura, Postanski_broj, Cena_nocenja, Depozit, Broj_sprata)<br>
           RENTE(<b>Id_Rente#, <u>Id_Stanodavca#, Id_Stana#, Id_Korisnika#</u></b>, Datum_pocetka, Broj_dana, Nacin_placanja, Broj_kartice)<br>
         </p>
+
+        <h3 id="4">4. Model klasa</h3>
+        <p>
+          Proces kreiranja modela klasa je sledeći: desnim klikom na Data sloj dodajemo folder(Add folder). 
+          Folder nazivamo Models. Desnim klikom na folder Models otvaraju se opcije od kojih biramo Add Item. 
+          Otvara se novi prozor u kojem biramo klasu (Class) i dajemo joj ime, u ovom slučaju Korisnik. 
+          Postavljamo klasu da bude javna(public) i definišemo automatizovana polja. Proceduru ponavljamo za ostale klase Stan i Renta. 
+        </p>
+        <p>
+          Za sve klase definisani su odgovarajući podrazumevani i parametrizovani konstruktori.
+        </p>
+        <img src="Klasa Korisnik.png" style="max-width: 60%; margin: 0 auto; display: block">
+        <br>
+        <img src="Konstruktor.png" style="max-width: 90%; margin: 0 auto; display: block">
       </section>
     </div>
   </body>
