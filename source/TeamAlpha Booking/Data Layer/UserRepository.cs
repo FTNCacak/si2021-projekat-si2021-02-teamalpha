@@ -6,11 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper; // Dapper je ORM (object–relational mapping) alat koji olaksava mapiranje instanci entiteta baze u objekte
-using Data_Layer.Models;
+using Shared.Models;
+using Shared.Interfaces;
 
 namespace Data_Layer
 {
-    public class UserRepository
+    public class UserRepository : IUserRepository
     {
         public int InsertUser(User user) // CREATE
         {
@@ -24,7 +25,7 @@ namespace Data_Layer
                 QueryParameters.Add("@FirstName", user.Ime);
                 QueryParameters.Add("@LastName", user.Prezime);
                 QueryParameters.Add("@Email", user.Email);
-                QueryParameters.Add("@PhoneNumber", user.Broj_telefona;
+                QueryParameters.Add("@PhoneNumber", user.Broj_telefona);
                 QueryParameters.Add("@BirthDate", user.Datum_rodjenja);
                 QueryParameters.Add("@Role", user.Stanodavac);
                 

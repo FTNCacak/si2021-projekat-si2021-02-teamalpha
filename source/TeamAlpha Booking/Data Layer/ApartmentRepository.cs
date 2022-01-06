@@ -5,12 +5,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Dapper;
-using Data_Layer;
-using Data_Layer.Models;
+using Shared.Interfaces;
+using Shared.Models;
 
 namespace Data_Layer
 {
-    public class ApartmentRepository
+    public class ApartmentRepository : IApartmentRepository
     {
         public int InsertApartment(Apartment apartment) // CREATE
         {

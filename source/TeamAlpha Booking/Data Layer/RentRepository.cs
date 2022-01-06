@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Data_Layer;
-using Data_Layer.Models;
+using Shared.Models;
 using Dapper;
 using System.Data.SqlClient;
+using Shared.Interfaces;
 
 namespace Data_Layer
 {
-    public class RentRepository
+    public class RentRepository : IRentRepository
     {
         public int InsertRent(Rent rent) // CREATE
         {
