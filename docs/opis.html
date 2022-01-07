@@ -235,17 +235,63 @@
 
         <h3 id="4">4. Model klasa</h3>
         <p>
-          Proces kreiranja modela klasa je sledeći: desnim klikom na Data sloj dodajemo folder(Add folder). 
-          Folder nazivamo Models. Desnim klikom na folder Models otvaraju se opcije od kojih biramo Add Item. 
-          Otvara se novi prozor u kojem biramo klasu (Class) i dajemo joj ime, u ovom slučaju Korisnik. 
-          Postavljamo klasu da bude javna(public) i definišemo automatizovana polja. Proceduru ponavljamo za ostale klase Stan i Renta. 
+          U direktorijumu Models biblioteke klasa Shared mogu se pronaći tri klase koje odgovaraju zadatom modelu podataka iz sekcije 3 
+          dokumentacije. Te tri klase su sledeće:
+          <ul>
+            <li>Apartment - odgovara entitetu Stan.</li>
+            <li>Rent - odgovara entitetu Renta.</li>
+            <li>User - odgovara entitetu Korisnik.</li>
+          </ul>
         </p>
         <p>
-          Za sve klase definisani su odgovarajući podrazumevani i parametrizovani konstruktori.
+          Svaka od tih klasa sadrži atribute koji svojim nazivom i tipom odgovaraju atributima zadatim u relacionoj šemi (Slika 2).
         </p>
-        <img src="Klasa Korisnik.png" style="max-width: 60%; margin: 0 auto; display: block">
-        <br>
-        <img src="Konstruktor.png" style="max-width: 90%; margin: 0 auto; display: block">
+        <h4>Klasa Apartment</h4>
+        <p>
+          Za sve klase definisani su odgovarajući podrazumevani i parametrizovani konstruktori. Za klasu Apartment, format parametrizovanog konstruktora je sledeći:<br>
+          <div id="codeblock"><span id="keyword">public</span> <span id="var">Apartment</span>(<span id="type">int</span> <span id="var">id_Stana</span>, <span id="type">string</span> 
+          <span id="var">mesto</span>, <span id="type">string</span> <span id="var">adresa</span>, <span id="type">int</span> <span id="var">broj_soba</span>, 
+          <span id="type">decimal</span> <span id="var">kvadratura</span>, <span id="type">int</span> <span id="var">postanski_broj</span>, 
+          <span id="type">decimal</span> <span id="var">cena_nocenja</span>, <span id="type">decimal</span> <span id="var">depozit</span>, <span id="type">int</span> 
+          <span id="var">broj_sprata</span>, <span id="type">int</span> <span id="var">id_Korisnika</span>);
+          </div><br>
+          Primer korišćenja parametrizovanog konstruktora klase Apartment:
+          <br>
+          <div id="codeblock">
+            <span id="type">Apartment</span> <span id="var">a</span> = <span id="keyword">new</span> <span id="var">Apartment</span>(<span id="var">id_Stana, 
+              mesto, adresa, broj_soba, kvadratura, postanski_broj, 
+              cena_nocenja, depozit, broj_sprata, id_korisnika</span>);
+          </div>
+        </p>
+        <h4>Klasa Rent</h4>
+        <p>
+          Parametrizovani konstruktor za klasu Rent:<br>
+          <div id="codeblock"><span id="keyword">public</span> <span id="var">Rent</span>(<span id="type">int</span> <span id="var">id_Rente</span>, <span id="type">DateTime</span> <span id="var">datum_pocetka</span>, 
+            <span id="type">int</span> <span id="var">broj_dana</span>, <span id="type">bool</span> <span id="var">nacin_placanja</span>, <span id="type">string</span> <span id="var">broj_kartice</span>, 
+            <span id="type">int</span> <span id="var">id_Korisnika</span>, <span id="type">int</span> <span id="var">id_Stana</span>, <span id="type">int</span> <span id="var">id_Stanodavca</span>);
+          </div>
+        </p>
+        <h4>Klasa User</h4>
+        <p>Parametrizovani konstruktor za klasu User:<br>
+          <div id="codeblock">
+            <span id="keyword">public</span> <span id="var">User</span>(<span id="type">int</span> <span id="var">id_Korisnika</span>, 
+            <span id="type">string</span> <span id="var">lozinka</span>, <span id="type">string</span> <span id="var">ime</span>, 
+            <span id="type">string</span> <span id="var">prezime</span>, <span id="type">string</span> <span id="var">email</span>, 
+            <span id="type">DateTime</span> <span id="var">datum_rodjenja</span>, 
+            <span id="type">string</span> <span id="var">broj_telefona</span>, 
+            <span id="type">bool</span> <span id="var">stanodavac</span>);
+        
+          </div>
+        </p>
+        <p>
+          Sve tri klase imaju i podrazumevani konstruktor sledećeg formata:<br>
+          <div id="codeblock">
+            <span id="keyword">public</span> <span id="var">Apartment</span>();<br>
+            <span id="keyword">public</span> <span id="var">Rent</span>();<br>
+            <span id="keyword">public</span> <span id="var">User</span>();<br>
+          </div>
+          Međutim, preporučuje se korišćenje isključivo parametrizovanog konstruktora.
+        </p>
       </section>
     </div>
   </body>

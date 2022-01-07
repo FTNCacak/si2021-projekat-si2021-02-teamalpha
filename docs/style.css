@@ -115,3 +115,20 @@ figcaption {
   font-style: italic;
   color: #505050;
 }
+
+code, #codeblock {
+  background-color: darkblue;
+  color: white;
+}
+
+#var {
+  color: lightgreen;
+}
+
+#keyword {
+  color: green;
+}
+
+#type {
+  color: lightgoldenrodyellow;
+}
