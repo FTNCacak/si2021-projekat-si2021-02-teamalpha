@@ -35,6 +35,9 @@
         <div class="menu-item">
           <a href="#4"><h3>4. Model klasa</h3></a>
         </div>
+        <div class="menu-item">
+          <a href="#5"><h3>5. Uspostavljanje konekcije s bazom podataka</h3></a>
+        </div>
       </aside>
       <section id="main-content">
         <h1 class="heading-b" id="uvod">
@@ -291,6 +294,76 @@
             <span id="keyword">public</span> <span id="var">User</span>();<br>
           </div>
           Međutim, preporučuje se korišćenje isključivo parametrizovanog konstruktora.
+        </p>
+        <h3 id="5">5. Uspostavljanje konekcije s bazom podataka, Repository klase</h3>
+        <p>
+          Projekat AlphaBooking sadrži tri repository klase shodno tabelama u bazi podataka. 
+          UserRepository, ApartmentRepository i RentRepository klase obezbeđuju povezivanje 
+          sloja podataka sa bazom, CRUD operacije kao i mapiranje podataka iz baze u instance 
+          model klasa. Implementirana je i utility klasa ConnectionStringProvider koja olakšava 
+          povezivanje sa bazom i čija metoda vraća connection string za bazu podataka na osnovu 
+          prosleđenog name argumenta koji je definisan u konfiguracionom fajlu.
+        </p>
+        <p>
+          Za skladištenje connection string-a iskorišćen je konfiguraciona datoteka App.config 
+          u koju se mogu skladištiti programski definisane vrednosti prateći datu XML strukturu.
+          Iz App.config datoteke mogu se čitati podaci koristeći ConfigurationManager klasu,
+          kao što se može videti u narednom primeru:
+
+          <div id="codeblock">
+            <span id="comment">// Primer App.config datoteke:</span> <br><br>
+            &lt;?<span id="marker">xml</span> <span id="attribute">version</span>=&quot;1.0&quot; <span id="attribute">encoding</span>=&quot;utf-8&quot; ?&gt;<br>
+            &lt;<span id="marker">configuration</span>&gt;<br>
+            &nbsp;&nbsp;&lt;<span id="marker">connectionStrings</span>&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span id="marker">add</span> <span id="attribute">name</span>=&quot;AlphaBookingDB&quot; <span id="attribute">connectionString</span>=&quot;Data Source=(localdb)\ProjectsV13;Initial Catalog=AlphaBookingDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False&quot; <span id="attribute">providerName</span>=&quot;System.Data.SqlClient&quot;&gt;&lt;<span id="marker">/add</span>&gt;
+            <br>&nbsp;&nbsp;&lt;/<span id="marker">connectionStrings</span>&gt;<br>
+            &nbsp;&nbsp;&lt;<span id="marker">startup</span>&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span id="marker">supportedRuntime</span> <span id="attribute">version</span>=&quot;v4.0&quot; <span id="attribute">sku</span>=&quot;.NETFramework,Version=v4.8&quot; /&gt;<br>
+            &nbsp;&nbsp;&lt;<span id="marker">/startup</span>&gt;<br>
+            &lt;<span id="marker">/configuration</span>&gt;<br>
+            <br>
+            <span id="comment">// Primer klase za dohvatanje connection string-a:</span><br><br>
+            <span id="keyword">public class</span> <span id="type">ConnectionStringProvider</span><br>
+            {<br>
+            &nbsp;&nbsp;<span id="keyword">public static</span> <span id="type">string</span> <span id="var">GetConnectionString</span> (<span id="type">String</span> <span id="var">name</span>) <span id="comment">// returns connection string using database name</span><br>
+            &nbsp;&nbsp;{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="keyword">return</span> <span id="var">ConfigurationManager.</span><span id="type">ConnectionStrings</span>[<span id="var">name</span>].<span id="var">ConnectionString</span>;<br>
+            &nbsp;&nbsp;}<br>
+            }<br>
+          </div>
+
+        </p>
+        <h4>Implementacija upita</h4> 
+        <p>
+          <b>Dapper ORM</b> - Radi lakšeg mapiranja vrednosti iz baze podataka u objekte iskorišćen je alat/ekstenzija 
+          za objektno relaciono mapiranje Dapper. Dapper je uključen u projekat preko NuGet paket menadžera.
+
+          Koristeći Dapper ORM moguće je izvršiti određene upite dosta jednostavnije. 
+          Dovoljno je metodama koje čitaju sve podatke iz tabele proslediti listu dinamičkih parametara,
+          koristeći DynamicParameters klasu.
+          Query metoda automatski mapira podatke iz baze u prosleđeni tip i izvršava prosleđeni upit.<br>
+          U narednom primeru možete videti jednu od implementacija SQL upita nad bazom podataka u kojoj
+          su iskorišćeni Dapper i DynamicParameters klasa.<br>
+          <div id="codeblock">
+            <span id="keyword">public</span> <span id="type">int</span> <span id="var">InsertUser</span>(<span id="type">User</span> <span id="var">user</span>)<br>
+            {<br>
+            &nbsp;&nbsp;<span id="type">String</span> <span id="var">InsertQuery</span> = <span id="string">&quot;INSERT INTO Korisnici VALUES(@Password, @FirstName, @LastName,  @Email, @BirthDate, @PhoneNumber, @Role)&quot;;</span><br>
+            <br>
+            &nbsp;&nbsp;<span id="keyword">using</span> (<span id="type">SqlConnection</span> <span id="var">connection</span> = <span id="keyword">new</span> <span id="var">SqlConnection</span>(<span id="var">ConnectionStringProvider</span>.<span id="type">GetConnectionString</span>(<span id="string">&quot;AlphaBookingDB&quot;</string>)))<br>
+            &nbsp;&nbsp;{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="keyword">var</span> <span id="var">QueryParameters</span> = <span id="keyword">new</span> <span id="type">DynamicParameters</span>(); <span id="comment">// parameterized query to prevent SQL injection</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@Password&quot;</span>, <span id="var">user</span>.<span id="type">Lozinka</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@FirstName&quot;</span>, <span id="var">user</span>.<span id="type">Ime</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@LastName&quot;</span>, <span id="var">user</span>.<span id="type">Prezime</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@Email&quot;</span>, <span id="var">user</span>.<span id="type">Email</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@PhoneNumber&quot;</span>, <span id="var">user</span>.<span id="type">Broj_telefona</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@BirthDate&quot;</span>, <span id="var">user</span>.<span id="type">Datum_rodjenja</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@Role&quot;</span>, <span id="var">user</span>.<span id="type">Stanodavac</span>);<br>
+                <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="keyword">return</span> <span id="var">connection</span>.<span id="type">Execute</span>(<span id="var">InsertQuery, QueryParameters</span>); <span id="comment"> // Execute method provided by Dapper</span><br>
+            &nbsp;&nbsp;}<br>
+            }<br>
+          </div>
         </p>
       </section>
     </div>
