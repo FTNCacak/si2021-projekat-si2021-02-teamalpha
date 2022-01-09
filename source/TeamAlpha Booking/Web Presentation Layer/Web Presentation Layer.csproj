@@ -67,7 +67,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CSS\bootstrap.css" />
     <Content Include="CSS\style.css" />
     <Content Include="Default.aspx" />
     <Content Include="Images\a1.jpg" />
@@ -75,12 +74,6 @@
     <Content Include="Images\a3.jpg" />
     <Content Include="Images\header1.jpg" />
     <Content Include="Images\LogoWhiteAB.png" />
-    <Content Include="js\bootstrap.bundle.js" />
-    <Content Include="js\bootstrap.bundle.min.js" />
-    <Content Include="js\bootstrap.esm.js" />
-    <Content Include="js\bootstrap.esm.min.js" />
-    <Content Include="js\bootstrap.js" />
-    <Content Include="js\bootstrap.min.js" />
     <Content Include="Registration.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -102,12 +95,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="js\bootstrap.bundle.js.map" />
-    <Content Include="js\bootstrap.bundle.min.js.map" />
-    <Content Include="js\bootstrap.esm.js.map" />
-    <Content Include="js\bootstrap.esm.min.js.map" />
-    <Content Include="js\bootstrap.js.map" />
-    <Content Include="js\bootstrap.min.js.map" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
