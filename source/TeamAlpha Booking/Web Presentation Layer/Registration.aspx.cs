@@ -12,6 +12,9 @@ namespace Web_Presentation_Layer
 {
     public partial class Registration : System.Web.UI.Page
     {
+        
+     
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -26,23 +29,23 @@ namespace Web_Presentation_Layer
             string PhoneNumber = "";
             string Password = "";
             string ConfirmPassword = "";
-            bool IsHost = false;
+            bool IsHost = CheckBoxHost.Checked;
 
             if (!(Request["floatingInputFirstName"] == "" || Request["floatingInputLastName"] == "" || Request["floatingDate"] == null ||
                   Request["floatingInputEmail"] == "" || Request["floatingPassword"] == "" || Request["floatingPasswordConfirm"] == "" || Request["PhoneNumber"] == ""))
             {
                 FirstName = Request["floatingInputFirstName"];
                 LastName = Request["floatingInputLastName"];
-                BirthDate = DateTime.ParseExact(Request["floatingDate"], "dd/MM/yyyy", null);
+                BirthDate = DateTime.Parse(Request["floatingDate"]);
                 Email = Request["floatingInputEmail"];
                 Password = Request["floatingPassword"];
                 ConfirmPassword = Request["floatingPasswordConfirm"];
                 PhoneNumber = Request["PhoneNumber"];
-                IsHost = CheckBoxHost.Checked;
 
                 if (ValidateData(FirstName, LastName, BirthDate, Email, PhoneNumber, Password, ConfirmPassword)) // if all data is valid
                 {
-                    //Registruj korisnika
+                    // check if email is unique
+                      // if ok insert new user
                 }                   
             }
             else
@@ -85,7 +88,7 @@ namespace Web_Presentation_Layer
 
             if(!IsPhoneValid(PhoneNumber))
             {
-                Alert("Neispravan unos telefona. Unesi broj u formatu: nnn-nnn-nnnn");
+                Alert("Neispravan unos broja telefona. Unesi broj u formatu: nnn-nnn-nnnn");
                 return false;
             }
 
@@ -120,17 +123,6 @@ namespace Web_Presentation_Layer
         private void Alert(string message)
         {
             ClientScript.RegisterStartupScript(this.GetType(), "alert", $"alert('{message}')", true);
-        }
-
-        private void GetInputValues(out string FirstName, out string LastName, out DateTime BirthDate, out string Email, out string Password, out string ConfirmPassword)
-        {
-            FirstName = Request["floatingInputFirstName"];
-            LastName = Request["floatingInputLastName"];
-            BirthDate = DateTime.ParseExact(Request["floatingDate"], "dd/MM/yyyy", null);
-            Email = Request["floatingInputEmail"];
-            Password = Request["floatingPassword"];
-            ConfirmPassword = Request["floatingPasswordConfirm"];
-            bool IsHost = CheckBoxHost.Checked;
         }
 
         protected void CheckBox2_CheckedChanged(object sender, EventArgs e)
