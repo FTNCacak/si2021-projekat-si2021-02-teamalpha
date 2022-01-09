@@ -68,6 +68,33 @@ namespace Data_Layer
             }
         }
 
+        public Boolean EmailExists(string email)
+        {
+            String dBQuery = "SELECT COUNT(*) FROM Korisnici k WHERE k.Email = @Email";
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                var QueryParameters = new DynamicParameters();
+
+                QueryParameters.Add("@Email", email);
+
+                return ((Int32)connection.ExecuteScalar(dBQuery, QueryParameters) > 0 ? true : false);
+            }
+
+        }
+
+        public string GetPassByEmail(string email)
+        {
+            String dBQuery = "SELECT Password FROM Korisnici k WHERE k.Email = @Email";
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                var QueryParameters = new DynamicParameters();
+
+                QueryParameters.Add("@Email", email);
+
+                return (string)connection.ExecuteScalar(dBQuery, QueryParameters);
+            }
+        }
+
         public int RemoveUser (int UserId) // DELETE
         {
             String DeleteQuery = "DELETE Korisnici WHERE Id_Korisnika = @Id";
