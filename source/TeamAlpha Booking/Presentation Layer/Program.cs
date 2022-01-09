@@ -27,8 +27,8 @@ namespace Presentation_Layer
 
             using (ServiceProvider serviceProvider = services.BuildServiceProvider())
             {
-                var r = serviceProvider.GetRequiredService<MainForm>();
-                Application.Run(r);
+                var form = serviceProvider.GetRequiredService<MainForm>();
+                Application.Run(form);
             }
 
 
@@ -36,14 +36,12 @@ namespace Presentation_Layer
 
         private static void ConfigureServices(ServiceCollection services)
         {
-            services.AddSingleton<IUserRepository, UserRepository>();
-            services.AddSingleton<IRentRepository, RentRepository>();
-            services.AddSingleton<IApartmentRepository, ApartmentRepository>();
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IRentRepository, RentRepository>();
+            services.AddScoped<IApartmentRepository, ApartmentRepository>();
+            services.AddScoped<IUserBusiness, UserBusiness>();
 
-            services.AddSingleton<IUserBusiness, UserBusiness>();
-
-            services.AddSingleton<MainForm>();
-            services.AddSingleton<Registration>();
+            services.AddScoped<MainForm>();
 
             
 
