@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Shared.Models;
+using Shared.Interfaces;
 using Business_Layer;
 using System.Text.RegularExpressions;
 
@@ -12,6 +13,10 @@ namespace Web_Presentation_Layer
 {
     public partial class Registration : System.Web.UI.Page
     {
+        private readonly UserBusiness userBusiness = new UserBusiness();
+
+   
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -41,8 +46,23 @@ namespace Web_Presentation_Layer
 
                 if (ValidateData(FirstName, LastName, BirthDate, Email, PhoneNumber, Password, ConfirmPassword)) // if all data is valid
                 {
-                    // check if email is unique
-                      // if ok insert new user
+                    User user = new User
+                    {
+                        Ime = FirstName,
+                        Prezime = LastName,
+                        Datum_rodjenja = BirthDate,
+                        Email = Email,
+                        Lozinka = Password,
+                        Broj_telefona = PhoneNumber,
+                        Stanodavac = IsHost
+                    };
+
+                    if (userBusiness.RegisterUser(user) != 1)
+                    {
+                        Alert("Email je već u upotrebi!");
+                    }
+
+                    Alert("Uspešna registracija. Možeš se prijaviti.");
                 }                   
             }
             else
