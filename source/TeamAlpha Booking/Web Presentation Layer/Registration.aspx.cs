@@ -13,7 +13,7 @@ namespace Web_Presentation_Layer
 {
     public partial class Registration : System.Web.UI.Page
     {
-        private IUserBusiness userBusiness;
+        private readonly IUserBusiness userBusiness;
 
         public Registration(IUserBusiness _userBusiness)
         {
@@ -27,25 +27,17 @@ namespace Web_Presentation_Layer
 
         protected void RegisterBtn_Click(object sender, EventArgs e) // todo: refactor
         {
-            string FirstName = "";
-            string LastName = "";
-            DateTime BirthDate;
-            string Email = "";
-            string PhoneNumber = "";
-            string Password = "";
-            string ConfirmPassword = "";
-            bool IsHost = CheckBoxHost.Checked;
-
             if (!(Request["floatingInputFirstName"] == "" || Request["floatingInputLastName"] == "" || Request["floatingDate"] == null ||
                   Request["floatingInputEmail"] == "" || Request["floatingPassword"] == "" || Request["floatingPasswordConfirm"] == "" || Request["PhoneNumber"] == ""))
             {
-                FirstName = Request["floatingInputFirstName"];
-                LastName = Request["floatingInputLastName"];
-                BirthDate = DateTime.Parse(Request["floatingDate"]);
-                Email = Request["floatingEmail"];
-                Password = Request["floatingPassword"];
-                ConfirmPassword = Request["floatingPasswordConfirm"];
-                PhoneNumber = Request["floatingPhone"];
+                string FirstName = Request["floatingInputFirstName"];
+                string LastName = Request["floatingInputLastName"];
+                DateTime BirthDate = DateTime.Parse(Request["floatingDate"]);
+                string Email = Request["floatingEmail"];
+                string Password = Request["floatingPassword"];
+                string ConfirmPassword = Request["floatingPasswordConfirm"];
+                string PhoneNumber = Request["floatingPhone"];
+                bool IsHost = CheckBoxHost.Checked;
 
                 if (ValidateData(FirstName, LastName, BirthDate, Email, PhoneNumber, Password, ConfirmPassword)) // if all data is valid
                 {
@@ -65,7 +57,7 @@ namespace Web_Presentation_Layer
                         Alert("Email je već u upotrebi!");
                     }
 
-                    Alert("Uspešna registracija. Možeš se prijaviti.");
+                    Alert("Uspešna registracija. Možeš da se prijaviš.");
                 }                   
             }
             else
