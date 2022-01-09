@@ -12,9 +12,6 @@ namespace Web_Presentation_Layer
 {
     public partial class Registration : System.Web.UI.Page
     {
-        
-     
-
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -94,7 +91,6 @@ namespace Web_Presentation_Layer
 
             return true;
         }
-
 
         private bool IsPhoneValid(string Phone)
         {
