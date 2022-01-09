@@ -11,7 +11,12 @@ namespace Business_Layer
 {
     public class UserBusiness : IUserBusiness
     {
-        readonly UserRepository userRepo = new UserRepository();
+        readonly IUserRepository userRepo;
+
+        public UserBusiness(IUserRepository _userRepo)
+        {
+            userRepo = _userRepo;
+        }
 
         public  int RegisterUser(User user) // pass validated instance
         {
