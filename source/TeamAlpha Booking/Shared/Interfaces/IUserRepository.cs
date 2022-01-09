@@ -13,5 +13,9 @@ namespace Shared.Interfaces
         List<User> GetAllUsers();
         int UpdateUserData(User UpdatedUser);
         int RemoveUser(int UserId);
+
+        Boolean EmailExists(string email);
+
+        string GetPassByEmail(string email);
     }
 }

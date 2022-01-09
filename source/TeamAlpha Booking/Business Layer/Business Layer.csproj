@@ -46,5 +46,11 @@
     <Compile Include="RentBusiness.cs" />
     <Compile Include="UserBusiness.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Shared\Shared.csproj">
+      <Project>{755B944A-CE74-473D-B3DE-406F5636FE1E}</Project>
+      <Name>Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
