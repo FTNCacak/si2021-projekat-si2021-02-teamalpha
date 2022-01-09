@@ -103,5 +103,14 @@ namespace Data_Layer
                 return (string)connection.ExecuteScalar(dBQuery, QueryParameters);
             }
         }
+        
+        public bool IsEmailUnique(String email)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                return connection.Execute("SELECT COUNT(*) FROM Korisnici WHERE Email = @Email", new { Email = email }) == 0 ? true : false ;
+            }
+        }
     }
 }
+
