@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Interfaces\IApartmentRepository.cs" />
     <Compile Include="Interfaces\IRentRepository.cs" />
+    <Compile Include="Interfaces\IUserBusiness.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
     <Compile Include="Models\Apartment.cs" />
     <Compile Include="Models\Rent.cs" />
