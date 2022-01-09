@@ -9,7 +9,7 @@ using Data_Layer;
 
 namespace Business_Layer
 {
-    public class UserBusiness
+    public class UserBusiness : IUserBusiness
     {
         private readonly IUserRepository userRepo;
 
