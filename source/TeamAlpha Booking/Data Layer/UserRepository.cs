@@ -86,7 +86,7 @@ namespace Data_Layer
 
                 QueryParameters.Add("@Email", email);
 
-                return ((Int32)connection.ExecuteScalar(dBQuery, QueryParameters)>0 ? true : false);
+                return ((Int32)connection.ExecuteScalar(dBQuery, QueryParameters) > 0 ? true : false);
             }
             
         }

@@ -1,8 +1,13 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Shared.Interfaces;
+using Data_Layer;
+using Web_Presentation_Layer;
+using Business_Layer;
 
 namespace Presentation_Layer
 {
@@ -16,7 +21,34 @@ namespace Presentation_Layer
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainForm());
+
+            var services = new ServiceCollection();
+            ConfigureServices(services);
+
+            using (ServiceProvider serviceProvider = services.BuildServiceProvider())
+            {
+                var form = serviceProvider.GetRequiredService<MainForm>();
+                Application.Run(form);
+            }
+
+
+        }
+
+        private static void ConfigureServices(ServiceCollection services)
+        {
+            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IRentRepository, RentRepository>();
+            services.AddScoped<IApartmentRepository, ApartmentRepository>();
+            services.AddScoped<IUserBusiness, UserBusiness>();
+
+            services.AddScoped<MainForm>();
+
+            
+
+
+           /* services.AddScoped<IItemRepository, ItemRepository>();
+            services.AddScoped<IItemBusiness, ItemBusiness>();
+            services.AddScoped<Magacin>(); */
         }
     }
 }

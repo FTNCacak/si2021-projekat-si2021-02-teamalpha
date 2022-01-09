@@ -11,13 +11,18 @@ namespace Business_Layer
 {
     public class UserBusiness : IUserBusiness
     {
-        private readonly IUserRepository userRepo;
+        readonly IUserRepository userRepo;
 
-        public int RegisterUser(User user) // pass validated instance
+        public UserBusiness(IUserRepository _userRepo)
+        {
+            userRepo = _userRepo;
+        }
+
+        public  int RegisterUser(User user) // pass validated instance
         {
             String email = user.Email;
 
-            if (userRepo.EmailExists(email))
+            if (!userRepo.EmailExists(email))
             { // check if entered email is unique  
                 return userRepo.InsertUser(user); //insert new user into db
             }
