@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Shared.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ namespace Business_Layer
     public class UserBusiness
     {
 
+
         private readonly UserRepository userRepository;
         
         public int  RegisterUser (User user) // pass validated instance
@@ -22,6 +24,16 @@ namespace Business_Layer
             }
 
             return -1;
+
+        IUserRepository userRepo;
+        public Boolean CheckPassword(string email, string password)
+        {
+            if (userRepo.EmailExists(email))
+            {
+                return password.Equals(userRepo.GetPassByEmail(email));
+            }
+            return false;
+
         }
     }
 }
