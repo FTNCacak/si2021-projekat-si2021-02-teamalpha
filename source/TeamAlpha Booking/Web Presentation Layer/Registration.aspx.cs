@@ -34,10 +34,10 @@ namespace Web_Presentation_Layer
                 FirstName = Request["floatingInputFirstName"];
                 LastName = Request["floatingInputLastName"];
                 BirthDate = DateTime.Parse(Request["floatingDate"]);
-                Email = Request["floatingInputEmail"];
+                Email = Request["floatingEmail"];
                 Password = Request["floatingPassword"];
                 ConfirmPassword = Request["floatingPasswordConfirm"];
-                PhoneNumber = Request["PhoneNumber"];
+                PhoneNumber = Request["floatingPhone"];
 
                 if (ValidateData(FirstName, LastName, BirthDate, Email, PhoneNumber, Password, ConfirmPassword)) // if all data is valid
                 {

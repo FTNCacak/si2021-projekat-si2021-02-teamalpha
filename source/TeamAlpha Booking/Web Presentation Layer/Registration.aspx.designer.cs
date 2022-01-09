@@ -39,7 +39,7 @@ namespace Web_Presentation_Layer
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl floatingInputLastName;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText floatingInputLastName;
 
         /// <summary>
         /// floatingDate control.

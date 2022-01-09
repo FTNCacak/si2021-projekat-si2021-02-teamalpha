@@ -50,7 +50,7 @@
                                         <label for="floatingInputFirstName">Ime</label>
                                     </div>
                                     <div class="form-floating mb-3">
-                                        <input runat="server" type="email" class="form-control" id="floatingInputLastName" placeholder="Unesi prezime" />
+                                        <input runat="server" type="text" class="form-control" id="floatingInputLastName" placeholder="Unesi prezime" />
                                         <label for="floatingInputLastName">Prezime</label>
                                     </div>
                                     <div class="form-floating mb-3">
