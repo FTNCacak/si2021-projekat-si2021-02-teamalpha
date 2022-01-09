@@ -13,9 +13,7 @@ namespace Web_Presentation_Layer
 {
     public partial class Registration : System.Web.UI.Page
     {
-        private readonly UserBusiness userBusiness = new UserBusiness();
-
-   
+        private readonly IUserBusiness userBusiness;
 
         protected void Page_Load(object sender, EventArgs e)
         {
