@@ -25,7 +25,7 @@ namespace Web_Presentation_Layer
            
         }
 
-        protected void RegisterBtn_Click(object sender, EventArgs e)
+        protected void RegisterBtn_Click(object sender, EventArgs e) // todo: refactor
         {
             string FirstName = "";
             string LastName = "";
@@ -144,9 +144,5 @@ namespace Web_Presentation_Layer
             ClientScript.RegisterStartupScript(this.GetType(), "alert", $"alert('{message}')", true);
         }
 
-        protected void CheckBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }

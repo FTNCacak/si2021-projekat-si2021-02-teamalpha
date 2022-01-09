@@ -5,8 +5,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <!-- META TAGS -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
     <!-- CSS LINKING -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet"/>
@@ -46,7 +46,7 @@
                                 <h5 class="card-title text-center mb-5 fw-light fs-5">Registruj novi nalog</h5>
                                 <div>
                                     <div class="form-floating mb-3">
-                                        <input runat="server" type="text" class="form-control" id="floatingInputFirstName" placeholder="Unesi ime" required autofocus />
+                                        <input runat="server" type="text" class="form-control" id="floatingInputFirstName" placeholder="Unesi ime" required="required" autofocus="autofocus" />
                                         <label for="floatingInputFirstName">Ime</label>
                                     </div>
                                     <div class="form-floating mb-3">
@@ -74,7 +74,7 @@
                                         <label for="floatingPasswordConfirm">Potvrdi lozinku</label>
                                     </div>
                                     <div class="form-check mb-3" style="padding-left: 2px;">                                       
-                                        <asp:CheckBox ID="CheckBoxHost" runat="server" OnCheckedChanged="CheckBox2_CheckedChanged" />
+                                        <asp:CheckBox ID="CheckBoxHost" runat="server"/>
                                         <label for="CheckBox2" class="form-check-label">Registruj se kao stanodavac</label>
                                     </div>                 
                                     <div class="d-grid mb-2">                                        
