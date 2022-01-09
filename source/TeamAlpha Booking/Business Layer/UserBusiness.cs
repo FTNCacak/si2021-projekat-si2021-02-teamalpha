@@ -13,19 +13,19 @@ namespace Business_Layer
     {
 
 
-        private readonly UserRepository userRepository;
+        private readonly IUserRepository userRepo;
         
         public int  RegisterUser (User user) // pass validated instance
         {
             String email = user.Email;
 
-            if (userRepository.IsEmailUnique(email)) { // check if entered email is unique  
-                return userRepository.InsertUser(user); //insert new user into db
+            if (userRepo.EmailExists(email)) { // check if entered email is unique  
+                return userRepo.InsertUser(user); //insert new user into db
             }
 
             return -1;
 
-        IUserRepository userRepo;
+        
         public Boolean CheckPassword(string email, string password)
         {
             if (userRepo.EmailExists(email))
