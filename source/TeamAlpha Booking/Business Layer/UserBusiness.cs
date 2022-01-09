@@ -35,5 +35,21 @@ namespace Business_Layer
             return false;
 
         }
+
+        public List<User> GetAllUsers()
+        {
+            return userRepo.GetAllUsers();
+        }
+
+        public int UpdateUserData(User UpdatedUser)
+        {
+            return userRepo.UpdateUserData(UpdatedUser);
+        }
+
+        public int RemoveUser(int UserId)
+        {
+            return userRepo.RemoveUser(UserId);
+        }
+
     }
 }
