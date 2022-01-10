@@ -42,10 +42,10 @@ namespace Presentation_Layer
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panelContentArea = new System.Windows.Forms.Panel();
+            this.UC_Rents = new Presentation_Layer.UserControls.Rents();
             this.UC_Users = new Presentation_Layer.UserControls.Users();
             this.UC_Overview = new Presentation_Layer.UserControls.Overview();
             this.UC_Apartments = new Presentation_Layer.UserControls.Apartments();
-            this.UC_Rents = new Presentation_Layer.UserControls.Rents();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -219,15 +219,24 @@ namespace Presentation_Layer
             // 
             // panelContentArea
             // 
+            this.panelContentArea.Controls.Add(this.UC_Overview);
             this.panelContentArea.Controls.Add(this.UC_Rents);
             this.panelContentArea.Controls.Add(this.UC_Users);
-            this.panelContentArea.Controls.Add(this.UC_Overview);
             this.panelContentArea.Controls.Add(this.UC_Apartments);
             this.panelContentArea.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContentArea.Location = new System.Drawing.Point(224, 62);
             this.panelContentArea.Name = "panelContentArea";
             this.panelContentArea.Size = new System.Drawing.Size(786, 608);
             this.panelContentArea.TabIndex = 3;
+            // 
+            // UC_Rents
+            // 
+            this.UC_Rents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.UC_Rents.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UC_Rents.Location = new System.Drawing.Point(0, 0);
+            this.UC_Rents.Name = "UC_Rents";
+            this.UC_Rents.Size = new System.Drawing.Size(786, 608);
+            this.UC_Rents.TabIndex = 3;
             // 
             // UC_Users
             // 
@@ -256,15 +265,6 @@ namespace Presentation_Layer
             this.UC_Apartments.Name = "UC_Apartments";
             this.UC_Apartments.Size = new System.Drawing.Size(786, 608);
             this.UC_Apartments.TabIndex = 1;
-            // 
-            // UC_Rents
-            // 
-            this.UC_Rents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.UC_Rents.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UC_Rents.Location = new System.Drawing.Point(0, 0);
-            this.UC_Rents.Name = "UC_Rents";
-            this.UC_Rents.Size = new System.Drawing.Size(786, 608);
-            this.UC_Rents.TabIndex = 3;
             // 
             // MainForm
             // 
