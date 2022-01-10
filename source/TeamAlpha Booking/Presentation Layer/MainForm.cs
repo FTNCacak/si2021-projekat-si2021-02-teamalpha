@@ -24,18 +24,19 @@ namespace Presentation_Layer
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void MainForm_Load(object sender, EventArgs e)
         {
-            userBusiness.RegisterUser(new User
+
+        }
+
+        protected override CreateParams CreateParams // overriding CreateParams
+        {
+            get
             {
-                Email = txtEmail.Text,
-                Lozinka = txtPassowrd.Text,
-                Ime = "Petar",
-                Prezime = "Petrovic",
-                Broj_telefona = "065-516-0718",
-                Stanodavac = false,
-                Datum_rodjenja = DateTime.Parse("01/01/2001")
-            }) ;
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle |= 0x02000000;  // Turn on WS_EX_COMPOSITED, forces double buffering on form level
+                return cp;
+            }
         }
     }
 }
