@@ -17,6 +17,8 @@ namespace Presentation_Layer
     public partial class MainForm : Form
     {
         readonly IUserBusiness userBusiness;
+        bool mouseDown;
+        private Point offset;
 
         public MainForm(IUserBusiness _userBusiness)
         {
@@ -26,7 +28,7 @@ namespace Presentation_Layer
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-
+            UC_Overview.BringToFront();
         }
 
         protected override CreateParams CreateParams // overriding CreateParams
@@ -41,32 +43,82 @@ namespace Presentation_Layer
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            currentBtnSelection.Location = new Point { X = 0, Y = 90 };
+            currentBtnSelection.Location = new Point { X = 0, Y = 62 };
+            ActivateButton(btnDashboard);
+
+            UC_Overview.BringToFront();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+
+        private void ActivateButton(Button btn)
         {
-            currentBtnSelection.Location = new Point { X = 0, Y = 150 };
+            btnApartments.ForeColor = Color.DarkGray;
+            btnDashboard.ForeColor = Color.DarkGray;
+            btnUsers.ForeColor = Color.DarkGray;
+            btnRents.ForeColor = Color.DarkGray;
+
+            btn.ForeColor = Color.Gainsboro;
+        }
+
+        private void btnUsers_Click(object sender, EventArgs e)
+        {
+            currentBtnSelection.Location = new Point { X = 0, Y = 122 };
             ActivateButton(btnUsers);
+
+            UC_Users.BringToFront();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void btnApartments_Click(object sender, EventArgs e)
         {
-            currentBtnSelection.Location = new Point { X = 0, Y = 210 };
+            currentBtnSelection.Location = new Point { X = 0, Y = 182 };
+            ActivateButton(btnApartments);
+
+            UC_Apartments.BringToFront();
         }
 
         private void btnRents_Click(object sender, EventArgs e)
         {
-            currentBtnSelection.Location = new Point { X = 0, Y = 270 };
+            currentBtnSelection.Location = new Point { X = 0, Y = 242 };
+            ActivateButton(btnRents);
+
+            UC_Rents.BringToFront();
         }
 
-        private void ActivateButton(Button btn)
+        private void button1_Click(object sender, EventArgs e)
         {
-            btnApartments.ForeColor = Color.Silver;
-            btnDashboard.ForeColor = Color.Silver;
-            btnUsers.ForeColor = Color.Silver;
+            Application.Exit();
+        }
 
-            btn.ForeColor = Color.Gainsboro;
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        private void panelMenu_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            offset.X = e.X;
+            offset.Y = e.Y;
+            mouseDown = true;
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                Point currentMousePosition = PointToScreen(e.Location);
+                Location = new Point(currentMousePosition.X - offset.X, currentMousePosition.Y - offset.Y);
+            }
+        }
+
+        private void panel1_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
         }
     }
 }
