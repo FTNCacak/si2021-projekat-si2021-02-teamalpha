@@ -53,11 +53,19 @@ namespace Presentation_Layer
         private void ActivateButton(Button btn)
         {
             btnApartments.ForeColor = Color.DarkGray;
+            btnApartments.BackColor = Color.FromArgb(39, 39, 39);
+
             btnDashboard.ForeColor = Color.DarkGray;
+            btnDashboard.BackColor = Color.FromArgb(39, 39, 39);
+
             btnUsers.ForeColor = Color.DarkGray;
+            btnUsers.BackColor = Color.FromArgb(39, 39, 39);
+
             btnRents.ForeColor = Color.DarkGray;
+            btnRents.BackColor = Color.FromArgb(39, 39, 39);
 
             btn.ForeColor = Color.Gainsboro;
+            btn.BackColor = Color.FromArgb(42, 42, 42);
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
