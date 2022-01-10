@@ -103,6 +103,15 @@ namespace Data_Layer
                 return (string)connection.ExecuteScalar(dBQuery, QueryParameters);
             }
         }
+
+        public User GetUserByEmail(string email)
+        {
+            String dBQuery = "SELECT TOP 1 FROM Korisnici k WHERE k.Email = @Email";
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                return (User)connection.ExecuteScalar(dBQuery, new { Email = email });
+            }
+        }
         
     }
 }

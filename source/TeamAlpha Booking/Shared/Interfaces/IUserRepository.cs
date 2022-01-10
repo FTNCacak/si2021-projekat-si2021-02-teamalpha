@@ -17,5 +17,6 @@ namespace Shared.Interfaces
         Boolean EmailExists(string email);
 
         string GetPassByEmail(string email);
+        User GetUserByEmail(string email);
     }
 }
