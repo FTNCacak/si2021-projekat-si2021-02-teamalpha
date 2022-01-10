@@ -38,5 +38,35 @@ namespace Presentation_Layer
                 return cp;
             }
         }
+
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {
+            currentBtnSelection.Location = new Point { X = 0, Y = 90 };
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            currentBtnSelection.Location = new Point { X = 0, Y = 150 };
+            ActivateButton(btnUsers);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            currentBtnSelection.Location = new Point { X = 0, Y = 210 };
+        }
+
+        private void btnRents_Click(object sender, EventArgs e)
+        {
+            currentBtnSelection.Location = new Point { X = 0, Y = 270 };
+        }
+
+        private void ActivateButton(Button btn)
+        {
+            btnApartments.ForeColor = Color.Silver;
+            btnDashboard.ForeColor = Color.Silver;
+            btnUsers.ForeColor = Color.Silver;
+
+            btn.ForeColor = Color.Gainsboro;
+        }
     }
 }
