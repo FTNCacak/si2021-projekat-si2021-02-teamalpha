@@ -46,6 +46,7 @@ namespace Presentation_Layer
             this.UC_Users = new Presentation_Layer.UserControls.Users();
             this.UC_Overview = new Presentation_Layer.UserControls.Overview();
             this.UC_Apartments = new Presentation_Layer.UserControls.Apartments();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -77,6 +78,7 @@ namespace Presentation_Layer
             // 
             this.panelMenu.AutoSize = true;
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(39)))), ((int)(((byte)(39)))), ((int)(((byte)(39)))));
+            this.panelMenu.Controls.Add(this.label1);
             this.panelMenu.Controls.Add(this.currentBtnSelection);
             this.panelMenu.Controls.Add(this.btnRents);
             this.panelMenu.Controls.Add(this.btnApartments);
@@ -161,6 +163,7 @@ namespace Presentation_Layer
             // 
             // btnDashboard
             // 
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.btnDashboard.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDashboard.FlatAppearance.BorderSize = 0;
             this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -176,7 +179,7 @@ namespace Presentation_Layer
             this.btnDashboard.Text = "   Pregled";
             this.btnDashboard.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDashboard.UseVisualStyleBackColor = true;
+            this.btnDashboard.UseVisualStyleBackColor = false;
             this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // panel1
@@ -266,6 +269,17 @@ namespace Presentation_Layer
             this.UC_Apartments.Size = new System.Drawing.Size(786, 608);
             this.UC_Apartments.TabIndex = 1;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(25, 642);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(174, 16);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "AlphaBooking 1.0 | TeamAlpha";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -285,6 +299,7 @@ namespace Presentation_Layer
             this.panelLogo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelMenu.ResumeLayout(false);
+            this.panelMenu.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panelContentArea.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -310,6 +325,7 @@ namespace Presentation_Layer
         private UserControls.Apartments UC_Apartments;
         private UserControls.Users UC_Users;
         private UserControls.Rents UC_Rents;
+        private System.Windows.Forms.Label label1;
     }
 }
 
