@@ -73,6 +73,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserControls\Apartments.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Apartments.Designer.cs">
+      <DependentUpon>Apartments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Overview.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Overview.Designer.cs">
+      <DependentUpon>Overview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Rents.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Rents.Designer.cs">
+      <DependentUpon>Rents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\Users.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -84,7 +108,20 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UserControls\Apartments.resx">
+      <DependentUpon>Apartments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Overview.resx">
+      <DependentUpon>Overview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Rents.resx">
+      <DependentUpon>Rents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -116,6 +153,57 @@
       <Project>{a8d0437b-874f-4232-9b78-6a8dc6cf6f4e}</Project>
       <Name>Web Presentation Layer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard_layout_48px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard_layout_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_page_40px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\staff_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transaction_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LogoWhiteAB.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\macos_close_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\macos_minimize_24px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_60px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IDSA 1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IDSA 11.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Category.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Activity.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Chart.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
