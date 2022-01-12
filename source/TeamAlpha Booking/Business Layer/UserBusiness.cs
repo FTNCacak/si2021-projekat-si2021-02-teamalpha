@@ -56,5 +56,9 @@ namespace Business_Layer
             return userRepo.RemoveUser(UserId);
         }
 
+        public User GetUserByEmail(string email)
+        {
+            return userRepo.GetUserByEmail(email);
+        }
     }
 }

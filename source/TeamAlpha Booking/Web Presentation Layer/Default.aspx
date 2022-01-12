@@ -26,8 +26,8 @@
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                            <li class="nav-item"><a class="nav-link" href="Default.aspx">Početna</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#">Prijava</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="Default.aspx">Početna</a></li>
+                            <li class="nav-item"><a class="nav-link" href="Login.aspx">Prijava</a></li>
                             <li class="nav-item"><a class="nav-link" href="Registration.aspx">Registracija</a></li>
                         </ul>
                     </div>
@@ -42,7 +42,7 @@
                                 <h1 class="display-5 fw-bolder text-white mb-2">Pronađi savršen smeštaj za tvoj savršen odmor</h1>
                                 <p class="lead fw-normal text-white-50 mb-4">AlphaBooking nudi veliki broj kuća, apartmana i hotela širom zemlje. Rezerviši smeštaj po tvojoj meri ili postavi svoj oglas i postani domaćin.</p>
                                 <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xl-start">
-                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="#">Pronađi smeštaj</a>
+                                    <a class="btn btn-primary btn-lg px-4 me-sm-3" href="Login.aspx">Pronađi smeštaj</a>
                                     <a class="btn btn-outline-light btn-lg px-4" href="#features">Saznaj više</a>
                                 </div>
                             </div>

@@ -11,7 +11,7 @@ namespace Web_Presentation_Layer
 {
 
 
-    public partial class Login
+    public partial class Dashboard
     {
 
         /// <summary>
@@ -24,30 +24,39 @@ namespace Web_Presentation_Layer
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// floatingEmail control.
+        /// labelUserID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl floatingEmail;
+        protected global::System.Web.UI.WebControls.Label labelUserID;
 
         /// <summary>
-        /// floatingPassword control.
+        /// labelUserEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword floatingPassword;
+        protected global::System.Web.UI.WebControls.Label labelUserEmail;
 
         /// <summary>
-        /// LoginBtn control.
+        /// labelUserFirstname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LoginBtn;
+        protected global::System.Web.UI.WebControls.Label labelUserFirstname;
+
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
     }
 }
