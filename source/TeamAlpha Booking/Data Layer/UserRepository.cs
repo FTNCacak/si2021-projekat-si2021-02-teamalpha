@@ -93,7 +93,7 @@ namespace Data_Layer
 
         public string GetPassByEmail(string email)
         {
-            String dBQuery = "SELECT Password FROM Korisnici k WHERE k.Email = @Email";
+            String dBQuery = "SELECT Lozinka FROM Korisnici k WHERE k.Email = @Email";
             using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
             {
                 var QueryParameters = new DynamicParameters();
@@ -106,10 +106,11 @@ namespace Data_Layer
 
         public User GetUserByEmail(string email)
         {
-            String dBQuery = "SELECT TOP 1 FROM Korisnici k WHERE k.Email = @Email";
+            String dBQuery = "SELECT TOP 1 * FROM Korisnici k WHERE k.Email = @Email";
             using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
             {
-                return (User)connection.ExecuteScalar(dBQuery, new { Email = email });
+                //return (User)connection.ExecuteScalar(dBQuery, new { Email = email });
+                return connection.Query<User>(dBQuery, new { Email = email}).First();
             }
         }
         

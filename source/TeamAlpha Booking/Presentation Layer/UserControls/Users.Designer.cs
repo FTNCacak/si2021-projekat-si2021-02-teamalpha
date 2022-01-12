@@ -49,6 +49,7 @@
             this.Controls.Add(this.label8);
             this.Name = "Users";
             this.Size = new System.Drawing.Size(786, 608);
+            this.Load += new System.EventHandler(this.Users_Load);
             this.ResumeLayout(false);
 
         }

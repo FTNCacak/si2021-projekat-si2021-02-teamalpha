@@ -16,5 +16,10 @@ namespace Presentation_Layer.UserControls
         {
             InitializeComponent();
         }
+
+        private void Apartments_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

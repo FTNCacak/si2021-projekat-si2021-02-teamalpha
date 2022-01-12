@@ -81,7 +81,7 @@ namespace Presentation_Layer
             currentBtnSelection.Location = new Point { X = 0, Y = 182 };
             ActivateButton(btnApartments);
 
-            UC_Apartments.BringToFront();
+            UC_Apartments.BringToFront();        
         }
 
         private void btnRents_Click(object sender, EventArgs e)
@@ -127,6 +127,11 @@ namespace Presentation_Layer
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

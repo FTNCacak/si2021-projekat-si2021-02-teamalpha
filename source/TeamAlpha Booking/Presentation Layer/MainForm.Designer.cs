@@ -33,6 +33,7 @@ namespace Presentation_Layer
             this.panelLogo = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.currentBtnSelection = new System.Windows.Forms.Panel();
             this.btnRents = new System.Windows.Forms.Button();
             this.btnApartments = new System.Windows.Forms.Button();
@@ -42,11 +43,10 @@ namespace Presentation_Layer
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panelContentArea = new System.Windows.Forms.Panel();
+            this.UC_Overview = new Presentation_Layer.UserControls.Overview();
             this.UC_Rents = new Presentation_Layer.UserControls.Rents();
             this.UC_Users = new Presentation_Layer.UserControls.Users();
-            this.UC_Overview = new Presentation_Layer.UserControls.Overview();
             this.UC_Apartments = new Presentation_Layer.UserControls.Apartments();
-            this.label1 = new System.Windows.Forms.Label();
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
@@ -92,6 +92,17 @@ namespace Presentation_Layer
             this.panelMenu.Size = new System.Drawing.Size(224, 670);
             this.panelMenu.TabIndex = 1;
             this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Gray;
+            this.label1.Location = new System.Drawing.Point(25, 642);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(174, 16);
+            this.label1.TabIndex = 6;
+            this.label1.Text = "AlphaBooking 1.0 | TeamAlpha";
             // 
             // currentBtnSelection
             // 
@@ -192,6 +203,7 @@ namespace Presentation_Layer
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(786, 62);
             this.panel1.TabIndex = 2;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
@@ -232,6 +244,16 @@ namespace Presentation_Layer
             this.panelContentArea.Size = new System.Drawing.Size(786, 608);
             this.panelContentArea.TabIndex = 3;
             // 
+            // UC_Overview
+            // 
+            this.UC_Overview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
+            this.UC_Overview.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.UC_Overview.Location = new System.Drawing.Point(0, 0);
+            this.UC_Overview.Name = "UC_Overview";
+            this.UC_Overview.Padding = new System.Windows.Forms.Padding(10);
+            this.UC_Overview.Size = new System.Drawing.Size(786, 608);
+            this.UC_Overview.TabIndex = 0;
+            // 
             // UC_Rents
             // 
             this.UC_Rents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
@@ -250,16 +272,6 @@ namespace Presentation_Layer
             this.UC_Users.Size = new System.Drawing.Size(786, 608);
             this.UC_Users.TabIndex = 2;
             // 
-            // UC_Overview
-            // 
-            this.UC_Overview.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
-            this.UC_Overview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.UC_Overview.Location = new System.Drawing.Point(0, 0);
-            this.UC_Overview.Name = "UC_Overview";
-            this.UC_Overview.Padding = new System.Windows.Forms.Padding(10);
-            this.UC_Overview.Size = new System.Drawing.Size(786, 608);
-            this.UC_Overview.TabIndex = 0;
-            // 
             // UC_Apartments
             // 
             this.UC_Apartments.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
@@ -268,17 +280,6 @@ namespace Presentation_Layer
             this.UC_Apartments.Name = "UC_Apartments";
             this.UC_Apartments.Size = new System.Drawing.Size(786, 608);
             this.UC_Apartments.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gray;
-            this.label1.Location = new System.Drawing.Point(25, 642);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(174, 16);
-            this.label1.TabIndex = 6;
-            this.label1.Text = "AlphaBooking 1.0 | TeamAlpha";
             // 
             // MainForm
             // 
@@ -289,6 +290,7 @@ namespace Presentation_Layer
             this.Controls.Add(this.panelContentArea);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelMenu);
+            this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(1010, 670);

@@ -49,6 +49,7 @@
             this.Controls.Add(this.label8);
             this.Name = "Apartments";
             this.Size = new System.Drawing.Size(786, 608);
+            this.Load += new System.EventHandler(this.Apartments_Load);
             this.ResumeLayout(false);
 
         }

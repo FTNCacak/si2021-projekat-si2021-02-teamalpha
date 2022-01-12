@@ -42,10 +42,7 @@ namespace Presentation_Layer
             services.AddScoped<IUserBusiness, UserBusiness>();
 
             services.AddScoped<MainForm>();
-
-            
-
-
+         
            /* services.AddScoped<IItemRepository, ItemRepository>();
             services.AddScoped<IItemBusiness, ItemBusiness>();
             services.AddScoped<Magacin>(); */
