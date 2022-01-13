@@ -120,7 +120,7 @@ namespace Data_Layer
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
             {
-                return (Int32)connection.Execute("SELECT COUNT(*) FROM Korisnici");
+                return connection.ExecuteScalar<int>("SELECT COUNT(*) FROM Korisnici");
             }
         }
     }

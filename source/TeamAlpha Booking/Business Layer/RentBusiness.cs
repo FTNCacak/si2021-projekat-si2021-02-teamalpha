@@ -34,12 +34,12 @@ namespace Business_Layer
 
         public int GetRentCount()
         {
-            return GetRentCount();
+            return rentRepo.GetRentCount();
         }
 
         public decimal CalculateRevenue()
         {
-            return CalculateRevenue();
+            return rentRepo.CalculateRevenue();
         }
     }
 }

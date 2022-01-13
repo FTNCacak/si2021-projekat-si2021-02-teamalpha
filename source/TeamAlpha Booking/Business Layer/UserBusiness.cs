@@ -63,7 +63,7 @@ namespace Business_Layer
 
         public int GetUserCount()
         {
-            return GetUserCount();
+            return userRepo.GetUserCount();
         }
     }
 }
