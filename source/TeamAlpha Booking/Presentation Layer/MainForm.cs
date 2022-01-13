@@ -47,6 +47,7 @@ namespace Presentation_Layer
             ActivateButton(btnDashboard);
 
             UC_Overview.BringToFront();
+            UC_Overview.UpdateLabels();
         }
 
 
@@ -132,6 +133,17 @@ namespace Presentation_Layer
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+                this.Hide();
+            this.BeginInvoke(new Action(() =>
+            {
+                if (this.WindowState != FormWindowState.Minimized && !Visible)
+                    this.Show();
+            }));
         }
     }
 }

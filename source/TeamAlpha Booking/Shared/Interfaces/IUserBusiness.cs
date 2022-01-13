@@ -12,5 +12,7 @@ namespace Shared.Interfaces
         int RegisterUser(User user);
         Boolean CheckPassword(string email, string password);
         User GetUserByEmail(string email);
+
+        int GetUserCount();
     }
 }

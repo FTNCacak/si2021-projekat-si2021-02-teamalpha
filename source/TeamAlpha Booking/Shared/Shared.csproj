@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\IApartmentBusiness.cs" />
     <Compile Include="Interfaces\IApartmentRepository.cs" />
+    <Compile Include="Interfaces\IRentBusiness.cs" />
     <Compile Include="Interfaces\IRentRepository.cs" />
     <Compile Include="Interfaces\IUserBusiness.cs" />
     <Compile Include="Interfaces\IUserRepository.cs" />
