@@ -47,6 +47,8 @@ namespace Presentation_Layer
             ActivateButton(btnDashboard);
 
             UC_Overview.BringToFront();
+            // TODO: Call refresh method here
+            // UC_Overview.RefreshData();
         }
 
 
@@ -74,6 +76,7 @@ namespace Presentation_Layer
             ActivateButton(btnUsers);
 
             UC_Users.BringToFront();
+            // TODO: Call refresh method here
         }
 
         private void btnApartments_Click(object sender, EventArgs e)
@@ -81,7 +84,8 @@ namespace Presentation_Layer
             currentBtnSelection.Location = new Point { X = 0, Y = 182 };
             ActivateButton(btnApartments);
 
-            UC_Apartments.BringToFront();        
+            UC_Apartments.BringToFront();
+            // TODO: Call refresh method here
         }
 
         private void btnRents_Click(object sender, EventArgs e)
@@ -90,6 +94,8 @@ namespace Presentation_Layer
             ActivateButton(btnRents);
 
             UC_Rents.BringToFront();
+            // TODO: Call refresh method here
+            // UC_Rents.RefreshData();
         }
 
         private void button1_Click(object sender, EventArgs e)
