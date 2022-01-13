@@ -9,9 +9,14 @@ using System.Threading.Tasks;
 
 namespace Business_Layer
 {
-    public class ApartmentBusiness
+    public class ApartmentBusiness : IApartmentBusiness
     {
         private readonly IApartmentRepository apartmentRepository;
+
+        public ApartmentBusiness(IApartmentRepository _apartmentRepository)
+        {
+            apartmentRepository = _apartmentRepository;
+        }
 
         public List<Apartment> GetAllApartments()
         {
