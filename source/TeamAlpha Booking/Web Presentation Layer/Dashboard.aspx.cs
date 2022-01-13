@@ -22,7 +22,7 @@ namespace Web_Presentation_Layer
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Cache.SetNoStore();
+            //Response.Cache.SetNoStore();
             if(!IsPostBack) //if page is being loaded for the first time
             {
                 if(Session["currentUserEmail"] != null)
@@ -30,6 +30,7 @@ namespace Web_Presentation_Layer
                     string currentUserEmail = Session["currentUserEmail"].ToString();
                     currentUser = userBusiness.GetUserByEmail(currentUserEmail);
 
+                    // FOR TEST PURPOSES ONLY
                     labelUserEmail.Text = currentUser.Email;
                     labelUserFirstname.Text = currentUser.Ime;
                     labelUserID.Text = currentUser.Id_Korisnika.ToString();
@@ -37,23 +38,30 @@ namespace Web_Presentation_Layer
 
                 else
                 {
-                   
-                        Session.Remove("currentUserEmail");
-                        Session.RemoveAll();
-                        Response.Redirect("Login.aspx");
-                    
+                    Logout();
                 }
             }
-           
-
-            
+            else
+            {
+                Logout();
+            }
         }
 
         protected void Button1_Click(object sender, EventArgs e)
         {
+            Logout();
+        }
+
+        private void Logout()
+        {
             Session.Remove("currentUserEmail");
             Session.RemoveAll();
             Response.Redirect("Login.aspx");
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }
