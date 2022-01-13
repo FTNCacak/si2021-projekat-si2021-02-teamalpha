@@ -17,12 +17,16 @@ namespace Presentation_Layer
     public partial class MainForm : Form
     {
         readonly IUserBusiness userBusiness;
+        readonly IApartmentBusiness apartmentBusiness;
+        readonly IRentBusiness rentBusiness;
         bool mouseDown;
         private Point offset;
 
-        public MainForm(IUserBusiness _userBusiness)
+        public MainForm(IUserBusiness _userBusiness, IApartmentBusiness _apartmentBusiness, IRentBusiness _rentBusiness)
         {
             userBusiness = _userBusiness;
+            rentBusiness = _rentBusiness;
+            apartmentBusiness = _apartmentBusiness;
             InitializeComponent();
         }
 

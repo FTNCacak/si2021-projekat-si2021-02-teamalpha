@@ -80,7 +80,7 @@ namespace Data_Layer
             }
         }
 
-        public int GetRentsCount()
+        public int GetRentCount()
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
             {

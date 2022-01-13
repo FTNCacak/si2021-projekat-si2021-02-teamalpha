@@ -43,10 +43,10 @@ namespace Presentation_Layer
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panelContentArea = new System.Windows.Forms.Panel();
-            this.UC_Overview = new Presentation_Layer.UserControls.Overview();
+            this.UC_Overview = new Presentation_Layer.UserControls.Overview(this.userBusiness, this.apartmentBusiness, this.rentBusiness);
             this.UC_Rents = new Presentation_Layer.UserControls.Rents();
             this.UC_Users = new Presentation_Layer.UserControls.Users();
-            this.UC_Apartments = new Presentation_Layer.UserControls.Apartments();
+            this.UC_Apartments = new Presentation_Layer.UserControls.Apartments(this.apartmentBusiness);
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();

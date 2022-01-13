@@ -40,7 +40,7 @@ namespace Business_Layer
 
         public int GetApartmentCount()
         {
-            return GetApartmentCount();
+            return apartmentRepository.GetApartmentCount();
         }
     }
 }
