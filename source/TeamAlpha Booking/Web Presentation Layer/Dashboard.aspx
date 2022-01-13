@@ -9,11 +9,23 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Label ID="labelUserID" runat="server" Text="Label"></asp:Label>
+            <asp:Label ID="Label1" runat="server" Text="User ID: "></asp:Label>
+           <asp:Label ID="labelUserID" runat="server" Text="Label"></asp:Label>
+        </div>
+        <br />
+        <div>
+            <asp:Label ID="Label2" runat="server" Text="User Email: "></asp:Label>
             <asp:Label ID="labelUserEmail" runat="server" Text="Label"></asp:Label>
+        </div>
+                      <br />  
+        <div>
+            <asp:Label ID="Label3" runat="server" Text="User First Name: "></asp:Label>
             <asp:Label ID="labelUserFirstname" runat="server" Text="Label"></asp:Label>
-        </div>       
-        <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Button" />
+        </div>
+            <br />
+          
+            <asp:Button ID="Button1" runat="server" OnClick="Button1_Click" Text="Logout" />
+        </p>
     </form>
 </body>
 </html>
