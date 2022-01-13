@@ -21,6 +21,9 @@ namespace Web_Presentation_Layer
             container.RegisterType<IUserBusiness, UserBusiness>();
             container.RegisterType<IUserRepository, UserRepository>();
 
+            container.RegisterType<IApartmentBusiness, ApartmentBusiness>();
+            container.RegisterType<IApartmentRepository, ApartmentRepository>();
+
         }
 
         protected void Session_Start(object sender, EventArgs e)

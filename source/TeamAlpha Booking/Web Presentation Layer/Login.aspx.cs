@@ -33,17 +33,16 @@ namespace Web_Presentation_Layer
             if (userBusiness.CheckPassword(email, password))
             {
                 // proslediti email usera preko sesije na dashboard
-                // na dashboardu u load eventu pozvati getUserByEmail 
+                // na dashboardu u load eventu pozvati getUserByEmail
 
                 Session["currentUserEmail"] = email;
-                Response.Redirect("Dashboard Pages/Apartments.aspx"); //loads master page
+                Response.Redirect("Apartments.aspx"); //loads master page
             }       
             else
             {
                 Alert("Nije pronađen korisnik sa unetim podacima. Pokušaj ponovo.");
             }
         }
-
 
         private void Alert(string message)
         {
