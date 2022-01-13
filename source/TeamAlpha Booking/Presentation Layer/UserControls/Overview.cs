@@ -22,13 +22,12 @@ namespace Presentation_Layer.UserControls
         {
             userBusiness = _userBusiness;
             apartmentBusiness = _apartmentBusiness;
-            rentBusiness = _rentBusiness;  
-        }
+            rentBusiness = _rentBusiness;
 
-        public Overview()
-        {
             InitializeComponent();
         }
+
+        
 
         private void Overview_Load(object sender, EventArgs e)
         {

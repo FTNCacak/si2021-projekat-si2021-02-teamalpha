@@ -13,5 +13,6 @@ namespace Shared.Interfaces
         List<Apartment> GetAllApartments();
         int UpdateApartmentData(Apartment apartment);
         int RemoveApartment(int ApartmentId);
+        int GetApartmentCount();
     }
 }
