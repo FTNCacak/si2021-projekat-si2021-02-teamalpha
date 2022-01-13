@@ -36,7 +36,7 @@ namespace Web_Presentation_Layer
                 // na dashboardu u load eventu pozvati getUserByEmail 
 
                 Session["currentUserEmail"] = email;
-                Response.Redirect("Dashboard.aspx");
+                Response.Redirect("Dashboard Pages/Apartments.aspx"); //loads master page
             }       
             else
             {

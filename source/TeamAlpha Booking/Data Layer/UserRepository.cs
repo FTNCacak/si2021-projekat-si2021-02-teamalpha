@@ -113,6 +113,8 @@ namespace Data_Layer
                 return connection.Query<User>(dBQuery, new { Email = email}).First();
             }
         }
+
+       
         
     }
 }

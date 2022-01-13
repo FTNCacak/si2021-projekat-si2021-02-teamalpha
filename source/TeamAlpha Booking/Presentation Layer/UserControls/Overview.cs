@@ -16,5 +16,15 @@ namespace Presentation_Layer.UserControls
         {
             InitializeComponent();
         }
+
+        private void Overview_Load(object sender, EventArgs e)
+        {
+           
+        }
+
+        public void GetCardData()
+        {
+
+        }
     }
 }

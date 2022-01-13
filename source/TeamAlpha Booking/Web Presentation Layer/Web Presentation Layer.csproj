@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CSS\style.css" />
+    <Content Include="Dashboard Pages\Apartments.aspx" />
     <Content Include="Dashboard.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
@@ -90,6 +91,20 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlphaBooking.Master.cs">
+      <DependentUpon>AlphaBooking.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AlphaBooking.Master.designer.cs">
+      <DependentUpon>AlphaBooking.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard Pages\Apartments.aspx.cs">
+      <DependentUpon>Apartments.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Dashboard Pages\Apartments.aspx.designer.cs">
+      <DependentUpon>Apartments.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.aspx.cs">
       <DependentUpon>Dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -124,6 +139,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AlphaBooking.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -146,9 +162,7 @@
       <Name>Shared</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Dashboard Pages\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
