@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Shared", "Shared\Shared.csp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Web Presentation Layer", "Web Presentation Layer\Web Presentation Layer.csproj", "{A8D0437B-874F-4232-9B78-6A8DC6CF6F4E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{C692B0D9-C3A7-41A7-BE76-EC29625B7E97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlfaBusinessTests", "AlfaBusinessTests\AlfaBusinessTests.csproj", "{7C4D9BBC-CA96-44F9-833E-76D8C54F2CA4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,9 +43,16 @@ Global
 		{A8D0437B-874F-4232-9B78-6A8DC6CF6F4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A8D0437B-874F-4232-9B78-6A8DC6CF6F4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A8D0437B-874F-4232-9B78-6A8DC6CF6F4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7C4D9BBC-CA96-44F9-833E-76D8C54F2CA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7C4D9BBC-CA96-44F9-833E-76D8C54F2CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7C4D9BBC-CA96-44F9-833E-76D8C54F2CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7C4D9BBC-CA96-44F9-833E-76D8C54F2CA4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7C4D9BBC-CA96-44F9-833E-76D8C54F2CA4} = {C692B0D9-C3A7-41A7-BE76-EC29625B7E97}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F4002704-17D8-47CF-8B0B-1801DB8094C4}
