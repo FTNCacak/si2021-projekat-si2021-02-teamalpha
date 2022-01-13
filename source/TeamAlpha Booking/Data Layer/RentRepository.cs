@@ -84,7 +84,7 @@ namespace Data_Layer
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
             {
-                return (Int32)connection.Execute("SELECT COUNT(*) FROM Rente");
+                return connection.ExecuteScalar<int>("SELECT COUNT(*) FROM Rente");
             }
         }
 
@@ -92,7 +92,7 @@ namespace Data_Layer
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
             {
-                return (Decimal)connection.Execute("SELECT SUM(Rente.Broj_dana*Stanovi.Cena_nocenja) FROM Rente JOIN Stanovi ON Rente.Id_Stana=Stanovi.Id_Stana");
+                return connection.ExecuteScalar<Decimal>("SELECT SUM(Rente.Broj_dana*Stanovi.Cena_nocenja) FROM Rente JOIN Stanovi ON Rente.Id_Stana=Stanovi.Id_Stana");
             }
         }
     }
