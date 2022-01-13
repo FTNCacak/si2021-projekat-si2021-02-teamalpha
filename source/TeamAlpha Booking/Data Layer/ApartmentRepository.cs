@@ -84,5 +84,13 @@ namespace Data_Layer
                 return connection.Execute(DeleteQuery, new {Id = ApartmentId});
             }
         }
+
+        public int GetApartmentCount()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                return (Int32)connection.Execute("SELECT COUNT(*) FROM Stanovi");
+            }
+        }
     }
 }
