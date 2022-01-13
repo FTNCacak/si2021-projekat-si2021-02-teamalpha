@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Dokumentacija</title>
+  </head>
+
+  <body>
+    <div class="flex-container">
+      <aside id="sidebar">
+        <div class="menu-item">
+            <a href="https://trello.com/si202102teamalpha/" target="_blank">
+                <h3><i class="fab fa-trello fa-lg"></i>Trello Workspace</h3>
+            </a>
+        </div>
+        <div class="menu-item">
+          <a href="#">
+              <h3><i class="fas fa-home fa-lg"></i>Početna strana</h3>
+            </a>
+        </div>
+        
+        <div class="menu-item">
+          <a href="#1"><h3>1. Opis aplikacije i njenih funkcionalnosti</h3></a>
+        </div>
+        <div class="menu-item">
+          <a href="#2"><h3>2. Konceptualni model podataka projekta</h3></a>
+        </div>
+        <div class="menu-item">
+          <a href="#3"><h3>3. Model podataka, biznis pravila</h3></a>
+        </div>
+        <div class="menu-item">
+          <a href="#4"><h3>4. Model klasa</h3></a>
+        </div>
+        <div class="menu-item">
+          <a href="#5"><h3>5. Uspostavljanje konekcije s bazom podataka</h3></a>
+        </div>
+      </aside>
+      <section id="main-content">
+        <h1 class="heading-b" id="uvod">
+          Projektni zadatak iz Softverskog inženjerstva - AlphaBooking
+        </h1>
+        <hr>
+        <br>
+        <b>Učesnici:</b>
+        <table>
+          <tr>
+            <td>Veljko Lončarević</td>
+            <td>64/2019</td>
+          </tr>
+          <tr>
+            <td>Savo Šućurović</td>
+            <td>67/2019</td>
+          </tr>
+          <tr>
+            <td>Nemanja Conjić</td>
+            <td>75/2019</td>
+          </tr>
+          <tr>
+            <td>Bogdan Milojević</td>
+            <td>76/2019</td>
+          </tr>
+        </table>
+        <hr />
+        <h3 id="1">
+          <center>1. Opis aplikacije i njenih funkcionalinosti</center>
+        </h3>
+        <p>
+          Aplikacija zvana "AlphaBooking<sup>TM</sup>" sastojaće se iz dva dela:
+          korisničkog panela, kojem će se pristupati koristeći jedan od
+          dostupnih web pretraživača, i admin panela, desktop programa
+          specijalne namene za administrativno upravljanje sadržajem same
+          aplikacije.
+        </p>
+
+        <p>
+          Korisniku će, nakon registracije ili prijave na veb aplikaciji, biti
+          dostupne dve mogućnosti: iznajmljivanje apartmana, u svojstvu vlasnika
+          nekretnine i u svojstvu iznajmljivača. Korisnik će moći da pregleda
+          listu dostupnih stambenih prostora za iznajmljivanje, kao i da kreira
+          svoj listing (uz naknadne procese verifikacije).
+        </p>
+
+        <p>
+          Korisniku je neophodno omogućiti funkcionalnosti kao što su pretraga
+          apartmana po lokaciji, sortiranje po raznim kriterijumima kao što su
+          cena, datum dostupnosti, broju soba, kreveta, dostupnosti interneta,
+          itd. Korisnik koji želi da iznajmi određeni prostor, mora ući u sam
+          listing, odabrati dane u kojima želi da zakaže prostor, nakon čega će
+          biti obavešten o ceni, i odabrati jednu od različitih formi za
+          plaćanje (PayPal, kreditna/debitna kartica).
+        </p>
+
+        <p>
+          Korisnici koji žele da daju svoj stan na izdavanje moraju proći kroz
+          dodatni proces registracije kao overenog stanodavca partnera Team
+          Alpha<sup>TM</sup> korporacije. Nakon uspešne registracije partnera
+          stanodavca, dobijaju mogućnost objavljivanja svojih listinga, gde će
+          morati detaljno navesti karakteristike prostora koje žele da iznajme.
+        </p>
+
+        <p>
+          Nakon što korisnik uspešno plati rentu i iznajmi stambeni prostor,
+          partner stanodavac mora biti obavešten o toj transakciji i novac mu
+          mora biti prosleđen u digitalni novčanik, odakle može novac prebaciti
+          na svoj račun.
+        </p>
+
+        <p>Dodatne funkcionalinosti:</p>
+        <ul>
+          <li>Otkazivanje rente (s određenim kriterijumima)</li>
+          <li>Pomeranje rente</li>
+          <li>Zahtev za refundiranje novca</li>
+          <li>
+            Recenzije korisnika i stanodavca, kao i sistem bodovanja (1-5)
+          </li>
+        </ul>
+
+        <hr />
+
+        <h3 id="2">2. Konceptualni model podataka projekta</h3>
+
+        <p>
+          Pre učestvovanja u samoj aplikaciji, neophodno je da budući korisnik
+          prvo kreira svoj nalog klikom na dugme "Registracija" na početnoj
+          strani aplikacije. Nakon popunjene forme, gde korisnik unosi podatke
+          kao što su imejl adresa, broj telefona, korisničko ime, lozinka, itd.,
+          kreira se novi nalog na koji se korisnik može prijaviti putem forme za
+          prijavu, koja se takođe može pronaći na početnoj stranici. Korisnik
+          može učestvovati u dve uloge: Kao stanodavac i kao podstanar. Overeni
+          partner Team Alpha projekta (u daljem tekstu: Stanodavac) prvo mora
+          popuniti posebnu formu za registraciju partnerstva, gde mora priložiti
+          očitanu kopiju lične karte kao prilog, kao i broj bankovnog računa gde
+          će biti prosleđene uplate.
+        </p>
+        <p>
+          Nakon što stanodavac postane overeni partner (tj. njegova prijava bude
+          odobrena), dobija mogućnost da doda svoje stanove/apartmane/sobe/kuće
+          (u daljem tekstu: stambeni prostor). Neophodno je navesti tražene
+          karakteristike stambenog prostora, kao što su kvadratura, broj soba,
+          broj kreveta, dostupnost interneta, kablovske, itd. Dodavanjem novog
+          stana za stanodavca otvara se mogućnost kreiranja listinga, gde će
+          moći proizvoljno da odredi cenu noćenja, depozita, kao i dostupne
+          datume.
+        </p>
+        <p>
+          S druge strane, korisnik u ulozi podstanara (u daljem tekstu:
+          podstanar) može odabrati da iznajmi željeni stambeni prostor iz
+          listinga na vreme određeno putem opcija selekcije datuma na strani
+          listinga, koje je u okvirima dostupnosti koje određuje stanodavac.
+          Neophodno je uneti detalje željenog načina plaćanja (Kreditna kartica,
+          paypal nalog, western union) pre samog iznajmljivanja. Kada je naplata
+          potvrđena, kreira se renta, koja sadrži izračunate podatke kao što su
+          plaćena cena (cena noćena * broj dana + depozit), kao i podatke o
+          datumima (početni datum, krajnji datum). Korisniku je takođe potrebno
+          omogućiti slanje zahteva kao što su pomeranje termina, refundacije,
+          prijavljivanje problema, itd. (Dodatne funkcionalnosti)
+        </p>
+        <p>
+          Administrator može videti sve transakcije, sve korisnike, sve
+          listinge, može kreirati/ukljanjati/menjati listinge. Može upravljati
+          korisničkim nalozima (brisati ih, odobravati zahteve za registraciju
+          stanodavaca, banovati ih, itd.).
+        </p>
+        <br>
+        <hr>
+        <h3 id="3">3. Model podataka, biznis pravila</h3>
+        <figure>
+          <img
+            src="ER Dijagram.png"
+            style="max-width: 90%; margin: 0 auto; display: block"
+          />
+          <figcaption>Slika 1: ER Dijagram modela podataka</figcaption>
+        </figure>
+        <p>
+          Model podataka koji TeamAlpha Booking koristi sastoji se iz tri entiteta: Korisnik, 
+          Stan i Renta (Slika 1). Entiteti Korisnik i Stan povezani su kroz jedan-prema-više (1:M) 
+          opcionalno-mandatornu bariranu vezu. Dodatna biznis pravila te veze:
+          <ul>
+            <li>Kako bi korisnik mogao da izda stan, mora biti overeni stanodavac partner kompanije TeamAlpha. </li>
+            <li>Provera statusa korisnika (da li je stanodavac ili ne) vrši se preko atributa Stanodavac entiteta Korisnik.</li>
+            <li>U slučaju da korisnik nije stanodavac, funkcija izdavanja stanova biće mu nedostupna.</li>
+          </ul>  
+        </p>
+        <p>
+          Entiteti Korisnik i Renta povezani su takođe opcionalno-mandatornom jedan-prema-više (1:M) bariranom vezom, gde
+          Renta predstavlja fakturu određenog perioda iznajmljivanja stana. Za ovu vezu važe sledeća biznis pravila, koja je 
+          potrebno implementirati u kodu:
+          <ul>
+            <li>Korisnik može iznajmiti stan nezavisno od toga da li je stanodavac ili ne.</li>
+            <li>Takođe, stanodavac može sam iznajmiti svoj stan na određeni period vremena.</li>
+            <li>Način plaćanja mora biti ili keš ili kartica.</li>
+            <li>U slučaju da je izabrana kartica, potrebno je uneti broj kartice, CCV broj od tri cifre, ime na kartici, kao i rok isteka kartice.</li>
+            <li>Od tih podataka, pamte se samo poslednje 4 cifre kartice.</li>
+            <li>Ukoliko je odabran keš kao način plaćanja, nije neophodno uneti broj kartice.</li>
+          </ul>
+        </p>
+        <p>
+          Entiteti Stan i Renta povezani su putem opcionalno-mandatorne jedan-prema-više (1:M) barirane veze.
+          Renta u suštini predstavlja međuvezu između entiteta Stan i Korisnik, te omogućava da jedan korisnik iznajmi
+          više stanova, kao i da jedan stan bude iznajmljen većem broju korisnika.
+          Naravno, i za ovu vezu postoje određena biznis pravila, koja se moraju implementirati putem koda:
+          <ul>
+            <li>Jedan stan može biti izdat na određeni vremenski period, naznačen atributima Datum početka i Broj dana.</li>
+            <li>Isti stan ne može biti ponovo izdat u tom vremenskom periodu.</li>
+            <li>Neophodno je naznačiti dostupnost stana, kao i onemogućiti izdavanje u već zauzetim terminima.</li>
+            <li>Ukupna cena rente izveden je atribut i računa se uz pomoć sledeće formule: Cena noćena * Broj dana + Depozit.</li>
+          </ul>
+        </p>
+        <p>ER Dijagram preveden u ERdish: 
+          <ul>
+            <li>KORISNIK može da izdaje jedan ili više stanova.</li>
+            <li>STAN se mora izdati od jednog i samo jednog korisnika.</li>
+            <li>KORISNIK može da uzme u zakup jednu ili više renti.</li>
+            <li>RENTA se mora uzeti u zakup od strane jednog I samo jednog korisnika.</li>
+            <li>STAN se može izdati na jednu ili više renti.</li>
+            <li>RENTA se mora izdati za jedan i samo jedan stan.</li>
+          </ul>
+        </p>
+        <figure>
+          <img
+            src="Šema Relacija.png"
+            style="max-width: 90%; margin: 0 auto; display: block"
+          />
+          <figcaption>Slika 2: Šema relacija</figcaption>
+        </figure>
+        <h4>
+          Šema relacija (+Slika 2):
+        </h4>
+        <p>
+          KORISNICI(<b>Id_Korisnika#</b>, Lozinka, Ime, Prezime, Email, Datum_rodjenja, Broj_telefona, Stanodavac)<br>
+          STANOVI(<b>Id_Stana#, <u>Id_Korisnika#</u></b>, Mesto, Adresa, Broj_soba, Kvadratura, Postanski_broj, Cena_nocenja, Depozit, Broj_sprata)<br>
+          RENTE(<b>Id_Rente#, <u>Id_Stanodavca#, Id_Stana#, Id_Korisnika#</u></b>, Datum_pocetka, Broj_dana, Nacin_placanja, Broj_kartice)<br>
+        </p>
+
+        <h3 id="4">4. Model klasa</h3>
+        <p>
+          U direktorijumu Models biblioteke klasa Shared mogu se pronaći tri klase koje odgovaraju zadatom modelu podataka iz sekcije 3 
+          dokumentacije. Te tri klase su sledeće:
+          <ul>
+            <li>Apartment - odgovara entitetu Stan.</li>
+            <li>Rent - odgovara entitetu Renta.</li>
+            <li>User - odgovara entitetu Korisnik.</li>
+          </ul>
+        </p>
+        <p>
+          Svaka od tih klasa sadrži atribute koji svojim nazivom i tipom odgovaraju atributima zadatim u relacionoj šemi (Slika 2).
+        </p>
+        <h4>Klasa Apartment</h4>
+        <p>
+          Za sve klase definisani su odgovarajući podrazumevani i parametrizovani konstruktori. Za klasu Apartment, format parametrizovanog konstruktora je sledeći:<br>
+          <div id="codeblock"><span id="keyword">public</span> <span id="var">Apartment</span>(<span id="type">int</span> <span id="var">id_Stana</span>, <span id="type">string</span> 
+          <span id="var">mesto</span>, <span id="type">string</span> <span id="var">adresa</span>, <span id="type">int</span> <span id="var">broj_soba</span>, 
+          <span id="type">decimal</span> <span id="var">kvadratura</span>, <span id="type">int</span> <span id="var">postanski_broj</span>, 
+          <span id="type">decimal</span> <span id="var">cena_nocenja</span>, <span id="type">decimal</span> <span id="var">depozit</span>, <span id="type">int</span> 
+          <span id="var">broj_sprata</span>, <span id="type">int</span> <span id="var">id_Korisnika</span>);
+          </div><br>
+          Primer korišćenja parametrizovanog konstruktora klase Apartment:
+          <br>
+          <div id="codeblock">
+            <span id="type">Apartment</span> <span id="var">a</span> = <span id="keyword">new</span> <span id="var">Apartment</span>(<span id="var">id_Stana, 
+              mesto, adresa, broj_soba, kvadratura, postanski_broj, 
+              cena_nocenja, depozit, broj_sprata, id_korisnika</span>);
+          </div>
+        </p>
+        <h4>Klasa Rent</h4>
+        <p>
+          Parametrizovani konstruktor za klasu Rent:<br>
+          <div id="codeblock"><span id="keyword">public</span> <span id="var">Rent</span>(<span id="type">int</span> <span id="var">id_Rente</span>, <span id="type">DateTime</span> <span id="var">datum_pocetka</span>, 
+            <span id="type">int</span> <span id="var">broj_dana</span>, <span id="type">bool</span> <span id="var">nacin_placanja</span>, <span id="type">string</span> <span id="var">broj_kartice</span>, 
+            <span id="type">int</span> <span id="var">id_Korisnika</span>, <span id="type">int</span> <span id="var">id_Stana</span>, <span id="type">int</span> <span id="var">id_Stanodavca</span>);
+          </div>
+        </p>
+        <h4>Klasa User</h4>
+        <p>Parametrizovani konstruktor za klasu User:<br>
+          <div id="codeblock">
+            <span id="keyword">public</span> <span id="var">User</span>(<span id="type">int</span> <span id="var">id_Korisnika</span>, 
+            <span id="type">string</span> <span id="var">lozinka</span>, <span id="type">string</span> <span id="var">ime</span>, 
+            <span id="type">string</span> <span id="var">prezime</span>, <span id="type">string</span> <span id="var">email</span>, 
+            <span id="type">DateTime</span> <span id="var">datum_rodjenja</span>, 
+            <span id="type">string</span> <span id="var">broj_telefona</span>, 
+            <span id="type">bool</span> <span id="var">stanodavac</span>);
+        
+          </div>
+        </p>
+        <p>
+          Sve tri klase imaju i podrazumevani konstruktor sledećeg formata:<br>
+          <div id="codeblock">
+            <span id="keyword">public</span> <span id="var">Apartment</span>();<br>
+            <span id="keyword">public</span> <span id="var">Rent</span>();<br>
+            <span id="keyword">public</span> <span id="var">User</span>();<br>
+          </div>
+          Međutim, preporučuje se korišćenje isključivo parametrizovanog konstruktora.
+        </p>
+        <h3 id="5">5. Uspostavljanje konekcije s bazom podataka, Repository klase</h3>
+        <p>
+          Projekat AlphaBooking sadrži tri repository klase shodno tabelama u bazi podataka. 
+          UserRepository, ApartmentRepository i RentRepository klase obezbeđuju povezivanje 
+          sloja podataka sa bazom, CRUD operacije kao i mapiranje podataka iz baze u instance 
+          model klasa. Implementirana je i utility klasa ConnectionStringProvider koja olakšava 
+          povezivanje sa bazom i čija metoda vraća connection string za bazu podataka na osnovu 
+          prosleđenog name argumenta koji je definisan u konfiguracionom fajlu.
+        </p>
+        <p>
+          Za skladištenje connection string-a iskorišćen je konfiguraciona datoteka App.config 
+          u koju se mogu skladištiti programski definisane vrednosti prateći datu XML strukturu.
+          Iz App.config datoteke mogu se čitati podaci koristeći ConfigurationManager klasu,
+          kao što se može videti u narednom primeru:
+
+          <div id="codeblock">
+            <span id="comment">// Primer App.config datoteke:</span> <br><br>
+            &lt;?<span id="marker">xml</span> <span id="attribute">version</span>=&quot;1.0&quot; <span id="attribute">encoding</span>=&quot;utf-8&quot; ?&gt;<br>
+            &lt;<span id="marker">configuration</span>&gt;<br>
+            &nbsp;&nbsp;&lt;<span id="marker">connectionStrings</span>&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span id="marker">add</span> <span id="attribute">name</span>=&quot;AlphaBookingDB&quot; <span id="attribute">connectionString</span>=&quot;Data Source=(localdb)\ProjectsV13;Initial Catalog=AlphaBookingDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False&quot; <span id="attribute">providerName</span>=&quot;System.Data.SqlClient&quot;&gt;&lt;<span id="marker">/add</span>&gt;
+            <br>&nbsp;&nbsp;&lt;/<span id="marker">connectionStrings</span>&gt;<br>
+            &nbsp;&nbsp;&lt;<span id="marker">startup</span>&gt;<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;<span id="marker">supportedRuntime</span> <span id="attribute">version</span>=&quot;v4.0&quot; <span id="attribute">sku</span>=&quot;.NETFramework,Version=v4.8&quot; /&gt;<br>
+            &nbsp;&nbsp;&lt;<span id="marker">/startup</span>&gt;<br>
+            &lt;<span id="marker">/configuration</span>&gt;<br>
+            <br>
+            <span id="comment">// Primer klase za dohvatanje connection string-a:</span><br><br>
+            <span id="keyword">public class</span> <span id="type">ConnectionStringProvider</span><br>
+            {<br>
+            &nbsp;&nbsp;<span id="keyword">public static</span> <span id="type">string</span> <span id="var">GetConnectionString</span> (<span id="type">String</span> <span id="var">name</span>) <span id="comment">// returns connection string using database name</span><br>
+            &nbsp;&nbsp;{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="keyword">return</span> <span id="var">ConfigurationManager.</span><span id="type">ConnectionStrings</span>[<span id="var">name</span>].<span id="var">ConnectionString</span>;<br>
+            &nbsp;&nbsp;}<br>
+            }<br>
+          </div>
+
+        </p>
+        <h4>Implementacija upita</h4> 
+        <p>
+          <b>Dapper ORM</b> - Radi lakšeg mapiranja vrednosti iz baze podataka u objekte iskorišćen je alat/ekstenzija 
+          za objektno relaciono mapiranje Dapper. Dapper je uključen u projekat preko NuGet paket menadžera.
+
+          Koristeći Dapper ORM moguće je izvršiti određene upite dosta jednostavnije. 
+          Dovoljno je metodama koje čitaju sve podatke iz tabele proslediti listu dinamičkih parametara,
+          koristeći DynamicParameters klasu.
+          Query metoda automatski mapira podatke iz baze u prosleđeni tip i izvršava prosleđeni upit.<br>
+          U narednom primeru možete videti jednu od implementacija SQL upita nad bazom podataka u kojoj
+          su iskorišćeni Dapper i DynamicParameters klasa.<br>
+          <div id="codeblock">
+            <span id="keyword">public</span> <span id="type">int</span> <span id="var">InsertUser</span>(<span id="type">User</span> <span id="var">user</span>)<br>
+            {<br>
+            &nbsp;&nbsp;<span id="type">String</span> <span id="var">InsertQuery</span> = <span id="string">&quot;INSERT INTO Korisnici VALUES(@Password, @FirstName, @LastName,  @Email, @BirthDate, @PhoneNumber, @Role)&quot;;</span><br>
+            <br>
+            &nbsp;&nbsp;<span id="keyword">using</span> (<span id="type">SqlConnection</span> <span id="var">connection</span> = <span id="keyword">new</span> <span id="var">SqlConnection</span>(<span id="var">ConnectionStringProvider</span>.<span id="type">GetConnectionString</span>(<span id="string">&quot;AlphaBookingDB&quot;</string>)))<br>
+            &nbsp;&nbsp;{<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="keyword">var</span> <span id="var">QueryParameters</span> = <span id="keyword">new</span> <span id="type">DynamicParameters</span>(); <span id="comment">// parameterized query to prevent SQL injection</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@Password&quot;</span>, <span id="var">user</span>.<span id="type">Lozinka</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@FirstName&quot;</span>, <span id="var">user</span>.<span id="type">Ime</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@LastName&quot;</span>, <span id="var">user</span>.<span id="type">Prezime</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@Email&quot;</span>, <span id="var">user</span>.<span id="type">Email</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@PhoneNumber&quot;</span>, <span id="var">user</span>.<span id="type">Broj_telefona</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@BirthDate&quot;</span>, <span id="var">user</span>.<span id="type">Datum_rodjenja</span>);<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@Role&quot;</span>, <span id="var">user</span>.<span id="type">Stanodavac</span>);<br>
+                <br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<span id="keyword">return</span> <span id="var">connection</span>.<span id="type">Execute</span>(<span id="var">InsertQuery, QueryParameters</span>); <span id="comment"> // Execute method provided by Dapper</span><br>
+            &nbsp;&nbsp;}<br>
+            }<br>
+          </div>
+        </p>
+      </section>
+    </div>
+  </body>
+</html>
