@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using Shared.Interfaces;
 using Shared.Models;
 
@@ -16,6 +15,7 @@ namespace Presentation_Layer.UserControls
     public partial class Apartments : UserControl
     {
         readonly IApartmentBusiness aptBusiness;
+
         public Apartments(IApartmentBusiness _aptBusiness)
         {
             aptBusiness = _aptBusiness;
@@ -43,5 +43,9 @@ namespace Presentation_Layer.UserControls
             }
         }
 
+        private void apartmentDGW_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

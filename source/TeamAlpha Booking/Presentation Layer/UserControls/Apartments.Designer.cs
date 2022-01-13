@@ -37,8 +37,6 @@ namespace Presentation_Layer.UserControls
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.apartmentDGW = new System.Windows.Forms.DataGridView();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,6 +47,8 @@ namespace Presentation_Layer.UserControls
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.apartmentDGW)).BeginInit();
             this.SuspendLayout();
             // 
@@ -109,27 +109,8 @@ namespace Presentation_Layer.UserControls
             this.apartmentDGW.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.apartmentDGW.Size = new System.Drawing.Size(786, 478);
             this.apartmentDGW.TabIndex = 8;
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label9.Location = new System.Drawing.Point(46, 80);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(658, 27);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Za ažuriranje zapisa klikni dva puta na željeni red.  Za brisanje zapisa selektuj" +
-    " red i stisni delete.";
-            // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label1.Location = new System.Drawing.Point(41, 24);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(363, 48);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Oglasi";
+            this.apartmentDGW.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.apartmentDGW_CellContentClick);
+            
             // 
             // Column1
             // 
@@ -199,6 +180,27 @@ namespace Presentation_Layer.UserControls
             this.dataGridViewTextBoxColumn10.HeaderText = "Korisnik";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
             this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label9.Location = new System.Drawing.Point(46, 80);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(658, 27);
+            this.label9.TabIndex = 10;
+            this.label9.Text = "Za ažuriranje zapisa klikni dva puta na željeni red.  Za brisanje zapisa selektuj" +
+    " red i stisni delete.";
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label1.Location = new System.Drawing.Point(41, 24);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(363, 48);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Oglasi";
             // 
             // Apartments
             // 
