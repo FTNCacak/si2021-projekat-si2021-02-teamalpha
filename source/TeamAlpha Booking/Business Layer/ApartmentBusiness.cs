@@ -32,5 +32,10 @@ namespace Business_Layer
         {
             return apartmentRepository.GetAllApartments().Where(apartment =>  apartment.Id_Korisnika == UserId).ToList();
         }
+
+        public int GetApartmentCount()
+        {
+            return GetApartmentCount();
+        }
     }
 }

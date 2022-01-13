@@ -79,5 +79,21 @@ namespace Data_Layer
                 return connection.Execute(DeleteQuery, new { Id = RentId });
             }
         }
+
+        public int GetRentsCount()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                return (Int32)connection.Execute("SELECT COUNT(*) FROM Rente");
+            }
+        }
+
+        public decimal CalculateRevenue()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                return (Decimal)connection.Execute("SELECT SUM(Rente.Broj_dana*Stanovi.Cena_nocenja) FROM Rente JOIN Stanovi ON Rente.Id_Stana=Stanovi.Id_Stana");
+            }
+        }
     }
 }

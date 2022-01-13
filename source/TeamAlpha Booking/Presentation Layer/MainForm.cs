@@ -47,6 +47,7 @@ namespace Presentation_Layer
             ActivateButton(btnDashboard);
 
             UC_Overview.BringToFront();
+            UC_Overview.UpdateLabels();
         }
 
 

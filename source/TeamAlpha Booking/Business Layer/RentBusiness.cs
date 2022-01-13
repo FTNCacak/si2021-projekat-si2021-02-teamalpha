@@ -27,7 +27,14 @@ namespace Business_Layer
             return rentRepo.RemoveRent(RentId);
         }
 
+        public int GetRentCount()
+        {
+            return GetRentCount();
+        }
 
-
+        public decimal CalculateRevenue()
+        {
+            return CalculateRevenue();
+        }
     }
 }

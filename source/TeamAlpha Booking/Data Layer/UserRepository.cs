@@ -114,6 +114,13 @@ namespace Data_Layer
             }
         }
         
+        public int GetUserCount()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                return (Int32)connection.Execute("SELECT COUNT(*) FROM Korisnici");
+            }
+        }
     }
 }
 
