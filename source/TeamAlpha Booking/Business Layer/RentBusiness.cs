@@ -8,9 +8,14 @@ using System.Threading.Tasks;
 
 namespace Business_Layer
 {
-    public class RentBusiness
+    public class RentBusiness : IRentBusiness
     {
         private readonly IRentRepository rentRepo;
+
+        public RentBusiness(IRentRepository _rentRepo)
+        {
+            rentRepo = _rentRepo;
+        }
 
         public List<Rent> GetAllRents()
         {
@@ -27,7 +32,14 @@ namespace Business_Layer
             return rentRepo.RemoveRent(RentId);
         }
 
+        public int GetRentCount()
+        {
+            return GetRentCount();
+        }
 
-
+        public decimal CalculateRevenue()
+        {
+            return CalculateRevenue();
+        }
     }
 }

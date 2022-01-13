@@ -40,12 +40,10 @@ namespace Presentation_Layer
             services.AddScoped<IRentRepository, RentRepository>();
             services.AddScoped<IApartmentRepository, ApartmentRepository>();
             services.AddScoped<IUserBusiness, UserBusiness>();
+            services.AddScoped<IRentBusiness, RentBusiness>();
+            services.AddScoped<IApartmentBusiness, ApartmentBusiness>();
 
             services.AddScoped<MainForm>();
-         
-           /* services.AddScoped<IItemRepository, ItemRepository>();
-            services.AddScoped<IItemBusiness, ItemBusiness>();
-            services.AddScoped<Magacin>(); */
         }
     }
 }

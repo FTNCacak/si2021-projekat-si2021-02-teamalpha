@@ -9,9 +9,14 @@ using System.Threading.Tasks;
 
 namespace Business_Layer
 {
-    public class ApartmentBusiness
+    public class ApartmentBusiness : IApartmentBusiness
     {
         private readonly IApartmentRepository apartmentRepository;
+
+        public ApartmentBusiness(IApartmentRepository _apartmentRepository)
+        {
+            apartmentRepository = _apartmentRepository;
+        }
 
         public List<Apartment> GetAllApartments()
         {
@@ -31,6 +36,11 @@ namespace Business_Layer
         public List<Apartment> GetCurrentUserApartments(int UserId)
         {
             return apartmentRepository.GetAllApartments().Where(apartment =>  apartment.Id_Korisnika == UserId).ToList();
+        }
+
+        public int GetApartmentCount()
+        {
+            return GetApartmentCount();
         }
     }
 }
