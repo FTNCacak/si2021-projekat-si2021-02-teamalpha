@@ -133,5 +133,16 @@ namespace Presentation_Layer
         {
 
         }
+
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+                this.Hide();
+            this.BeginInvoke(new Action(() =>
+            {
+                if (this.WindowState != FormWindowState.Minimized && !Visible)
+                    this.Show();
+            }));
+        }
     }
 }
