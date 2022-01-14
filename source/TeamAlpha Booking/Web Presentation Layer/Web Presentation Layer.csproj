@@ -87,7 +87,7 @@
     <Content Include="Images\header1.jpg" />
     <Content Include="Images\LogoWhiteAB.png" />
     <Content Include="Login.aspx" />
-    <Content Include="NewRent.aspx" />
+    <Content Include="NewApartment.aspx" />
     <Content Include="Registration.aspx" />
     <Content Include="Rents.aspx" />
     <Content Include="Web.config" />
@@ -124,12 +124,12 @@
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="NewRent.aspx.cs">
-      <DependentUpon>NewRent.aspx</DependentUpon>
+    <Compile Include="NewApartment.aspx.cs">
+      <DependentUpon>NewApartment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="NewRent.aspx.designer.cs">
-      <DependentUpon>NewRent.aspx</DependentUpon>
+    <Compile Include="NewApartment.aspx.designer.cs">
+      <DependentUpon>NewApartment.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registration.aspx.cs">

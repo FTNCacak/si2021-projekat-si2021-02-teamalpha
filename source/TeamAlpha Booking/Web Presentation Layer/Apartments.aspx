@@ -36,7 +36,7 @@
                                     </p>
                                     <hr />
                                     <div class="mb-3">
-                                        <label class="form-label">Noćenja</label>
+                                        <label class="form-label">Broj dana</label>
                                         <asp:TextBox runat="server" ID="NoDays" CssClass="form-control"></asp:TextBox>
                                     </div>
                                     <div class="mb-3">

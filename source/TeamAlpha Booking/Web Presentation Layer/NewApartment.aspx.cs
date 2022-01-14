@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace Web_Presentation_Layer
 {
-    public partial class NewRent : System.Web.UI.Page
+    public partial class NewApartment : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

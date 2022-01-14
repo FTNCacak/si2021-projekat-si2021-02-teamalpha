@@ -11,7 +11,7 @@ namespace Web_Presentation_Layer
 {
 
 
-    public partial class NewRent
+    public partial class NewApartment
     {
     }
 }

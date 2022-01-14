@@ -52,7 +52,7 @@
                                     </a>
                                 </li>                                
                                 <li>
-                                    <a href="NewRent.aspx" runat="server" id="addRentLink" visible="true" class="nav-link px-0 align-middle text-white d-flex align-items-center">
+                                    <a href="NewApartment.aspx" runat="server" id="addRentLink" visible="true" class="nav-link px-0 align-middle text-white d-flex align-items-center">
                                         <i class="fs-4 bi bi-plus-circle"></i><span class="ms-2 d-none d-sm-inline">Postavi oglas</span>
                                     </a>
                                 </li>
