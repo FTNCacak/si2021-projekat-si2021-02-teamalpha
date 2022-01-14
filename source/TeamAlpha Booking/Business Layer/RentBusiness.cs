@@ -17,6 +17,11 @@ namespace Business_Layer
             rentRepo = _rentRepo;
         }
 
+        public int InsertRent(Rent rent)
+        {
+            return rentRepo.InsertRent(rent);
+        }
+
         public List<Rent> GetAllRents()
         {
             return rentRepo.GetAllRents();
@@ -40,6 +45,11 @@ namespace Business_Layer
         public decimal CalculateRevenue()
         {
             return rentRepo.CalculateRevenue();
+        }
+
+        public List<Rent> GetUserRents(int UserID)
+        {
+            return rentRepo.GetUserRents(UserID);
         }
     }
 }

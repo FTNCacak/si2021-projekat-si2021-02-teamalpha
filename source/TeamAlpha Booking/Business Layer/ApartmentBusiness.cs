@@ -42,5 +42,10 @@ namespace Business_Layer
         {
             return apartmentRepository.GetApartmentCount();
         }
+
+        public Apartment GetApartmentByID(int ApartmentId)
+        {
+            return apartmentRepository.GetApartmentByID(ApartmentId);
+        }
     }
 }
