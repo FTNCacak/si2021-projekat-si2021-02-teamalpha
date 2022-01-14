@@ -12,5 +12,7 @@ namespace Shared.Interfaces
         int GetRentCount();
         decimal CalculateRevenue();
         int InsertRent(Rent rent);
+        List<Rent> GetAllRents();
+        List<Rent> GetUserRents(int UserID);
     }
 }

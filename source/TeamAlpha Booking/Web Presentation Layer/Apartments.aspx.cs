@@ -33,10 +33,21 @@ namespace Web_Presentation_Layer.Dashboard_Pages
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            try
+            {
+                if (Session["currentUserEmail"] != null)
+                {
                     string currentUserEmail = Session["currentUserEmail"].ToString();
                     currentUser = userBusiness.GetUserByEmail(currentUserEmail);
-            
+                }
+            }
+            catch (Exception)
+            {
+                Session.Remove("currentUserEmail");
+                Session.RemoveAll();
+                Response.Redirect("Login.aspx");
+                throw;
+            }
         }
 
         protected void Page_Init(object sender, EventArgs e)
@@ -59,20 +70,31 @@ namespace Web_Presentation_Layer.Dashboard_Pages
                 if (!(TB_NoDays.Text.Equals("") || TB_CardNumber.Text.Equals("")))
                 {
                     int NoDays = Int32.Parse(TB_NoDays.Text);
-                    string CardNumber = TB_NoDays.Text;
+                    string CardNumber = TB_CardNumber.Text;
 
                     if (!(NoDays <= 0))
                     {
-                        Rent rent = new Rent
+                        Rent rent;
+                        try
                         {
-                            Datum_pocetka = DateTime.Now,
-                            Broj_dana = NoDays,
-                            Nacin_placanja = true,
-                            Broj_kartice = CardNumber,
-                            Id_Korisnika = currentUser.Id_Korisnika,
-                            Id_Stana = selectedAppartment.Id_Stana,
-                            Id_Stanodavca = selectedAppartment.Id_Korisnika,                           
-                        };
+                            rent = new Rent
+                            {
+                                Datum_pocetka = DateTime.Now,
+                                Broj_dana = NoDays,
+                                Nacin_placanja = true,
+                                Broj_kartice = CardNumber,
+                                Id_Korisnika = currentUser.Id_Korisnika,
+                                Id_Stana = selectedAppartment.Id_Stana,
+                                Id_Stanodavca = selectedAppartment.Id_Korisnika,
+                            };
+                        }
+                        catch (Exception)
+                        {
+                            Session.Remove("currentUserEmail");
+                            Session.RemoveAll();
+                            Response.Redirect("Login.aspx");
+                            throw;
+                        }
 
                         if (rentBusiness.InsertRent(rent) == 1)
                         {
@@ -82,7 +104,7 @@ namespace Web_Presentation_Layer.Dashboard_Pages
                         }  
                         else
                         {
-                            Alert("Nije moguce iznajmiti stan.");
+                            Alert("Nije moguće iznajmiti stan.");
                         }
                     }
                     else

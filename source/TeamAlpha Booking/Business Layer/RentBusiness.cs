@@ -46,5 +46,10 @@ namespace Business_Layer
         {
             return rentRepo.CalculateRevenue();
         }
+
+        public List<Rent> GetUserRents(int UserID)
+        {
+            return rentRepo.GetUserRents(UserID);
+        }
     }
 }

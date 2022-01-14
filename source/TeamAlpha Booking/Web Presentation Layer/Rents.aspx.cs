@@ -11,23 +11,24 @@ namespace Web_Presentation_Layer
 {
     public partial class Rents : System.Web.UI.Page
     {
-        private readonly IUserBusiness userBusiness;
-        private readonly IRentBusiness rentBusiness;
-        private readonly IApartmentBusiness apartmentBusiness;
+        readonly IApartmentBusiness apartmentBusiness;
+        readonly IRentBusiness rentBusiness;
+        readonly IUserBusiness userBusiness;
 
-        public User currentUser;
+        private User currentUser;
 
-        public Rents(IUserBusiness _userBusiness, IRentBusiness _rentBusiness, IApartmentBusiness _apartmentBusiness)
+        private List<Rent> rentList = new List<Rent>();
+
+        public Rents(IApartmentBusiness _apartmentBusiness, IRentBusiness _rentBusiness, IUserBusiness _userBusiness)
         {
-            userBusiness = _userBusiness;
-            rentBusiness = _rentBusiness;
             apartmentBusiness = _apartmentBusiness;
+            rentBusiness = _rentBusiness;
+            userBusiness = _userBusiness;
         }
-     
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) //if page is being loaded for the first time
+            try
             {
                 if (Session["currentUserEmail"] != null)
                 {
@@ -35,6 +36,35 @@ namespace Web_Presentation_Layer
                     currentUser = userBusiness.GetUserByEmail(currentUserEmail);
                 }
             }
+            catch (Exception)
+            {
+                Session.Remove("currentUserEmail");
+                Session.RemoveAll();
+                Response.Redirect("Login.aspx");
+                throw;
+            }            
+        }
+
+        protected void Page_Init(object sender, EventArgs e)
+        {            
+            if (currentUser == null && Session["currentUserEmail"] != null)
+            {
+                string currentUserEmail = Session["currentUserEmail"].ToString();
+                currentUser = userBusiness.GetUserByEmail(currentUserEmail);
+            }
+            
+            if (currentUser != null)
+            {
+                rentList = rentBusiness.GetUserRents(currentUser.Id_Korisnika);
+                tableRowRepeater.DataSource = rentList;
+                tableRowRepeater.DataBind();
+            }
+            
+        }
+
+        protected void tableRowRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+
         }
     }
 }
