@@ -12,11 +12,15 @@ namespace Web_Presentation_Layer
     public partial class AlphaBooking : System.Web.UI.MasterPage
     {
         private readonly IUserBusiness userBusiness;
-        private User currentUser;
+        public User currentUser;
 
         public AlphaBooking(IUserBusiness _userBusiness)
         {
             userBusiness = _userBusiness;
+        }
+
+        public AlphaBooking()
+        {
         }
 
         protected void Page_Init(object sender, EventArgs e)
@@ -27,6 +31,7 @@ namespace Web_Presentation_Layer
         private void logOutLink_ServerClick(object sender, EventArgs e)
         {
             Logout();
+            
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -48,10 +53,6 @@ namespace Web_Presentation_Layer
                     Logout();
                 }
             }
-            else
-            {
-                //Logout();
-            }
          
         }
 
@@ -60,8 +61,6 @@ namespace Web_Presentation_Layer
             Session.Remove("currentUserEmail");
             Session.RemoveAll();
             Response.Redirect("Login.aspx");
-        }
-
-        
+        }       
     }
 }

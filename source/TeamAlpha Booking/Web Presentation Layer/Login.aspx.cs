@@ -37,7 +37,8 @@ namespace Web_Presentation_Layer
 
                 Session["currentUserEmail"] = email;
                 Response.Redirect("Apartments.aspx"); //loads master page
-            }       
+            } 
+            
             else
             {
                 Alert("Nije pronađen korisnik sa unetim podacima. Pokušaj ponovo.");
@@ -48,6 +49,5 @@ namespace Web_Presentation_Layer
         {
             ClientScript.RegisterStartupScript(this.GetType(), "alert", $"alert('{message}')", true);
         }
-
     }
 }

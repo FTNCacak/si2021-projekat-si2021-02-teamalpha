@@ -17,6 +17,11 @@ namespace Business_Layer
             rentRepo = _rentRepo;
         }
 
+        public int InsertRent(Rent rent)
+        {
+            return rentRepo.InsertRent(rent);
+        }
+
         public List<Rent> GetAllRents()
         {
             return rentRepo.GetAllRents();

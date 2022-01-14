@@ -18,12 +18,15 @@ namespace Web_Presentation_Layer
         protected void Application_Start(object sender, EventArgs e)
         {
             var container = this.AddUnity();
+
             container.RegisterType<IUserBusiness, UserBusiness>();
             container.RegisterType<IUserRepository, UserRepository>();
 
             container.RegisterType<IApartmentBusiness, ApartmentBusiness>();
             container.RegisterType<IApartmentRepository, ApartmentRepository>();
 
+            container.RegisterType<IRentRepository, RentRepository>();
+            container.RegisterType<IRentBusiness, RentBusiness>();           
         }
 
         protected void Session_Start(object sender, EventArgs e)
