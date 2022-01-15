@@ -33,7 +33,7 @@ namespace Business_Layer
             return apartmentRepository.UpdateApartmentData(apartment);
         }
 
-        public List<Apartment> GetCurrentUserApartments(int UserId)
+        public List<Apartment> GetCurrentUserApartments(int UserId) 
         {
             return apartmentRepository.GetAllApartments().Where(apartment =>  apartment.Id_Korisnika == UserId).ToList();
         }

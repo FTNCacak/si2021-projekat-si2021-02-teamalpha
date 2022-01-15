@@ -15,6 +15,7 @@ namespace Web_Presentation_Layer
         readonly IUserBusiness userBusiness;
 
         private User currentUser;
+        private List<Apartment> apartmentList = new List<Apartment>();
 
         public NewApartment(IApartmentBusiness _apartmentBusiness, IUserBusiness _userBusiness)
         {
@@ -47,6 +48,13 @@ namespace Web_Presentation_Layer
             {
                 string currentUserEmail = Session["currentUserEmail"].ToString();
                 currentUser = userBusiness.GetUserByEmail(currentUserEmail);
+            }
+
+            if (currentUser != null)
+            {
+                apartmentList = apartmentBusiness.GetCurrentUserApartments(currentUser.Id_Korisnika);
+                tableRowRepeater.DataSource = apartmentList;
+                tableRowRepeater.DataBind();
             }
         }
 
@@ -82,6 +90,9 @@ namespace Web_Presentation_Layer
                 if(apartmentBusiness.InsertApartment(apartment) == 1)
                 {
                     Alert("Oglas uspešno postavljen!");
+                    inputAddress.Text = inputNoRooms.Text = inputSize.Text = inputZipCode.Text = inputFloor.Text =
+                    inputNightPrice.Text = inputDeposit.Text = "";
+                    
                 }
 
                 else
@@ -98,6 +109,11 @@ namespace Web_Presentation_Layer
         private void Alert(string message)
         {
             ClientScript.RegisterStartupScript(this.GetType(), "alert", $"alert('{message}')", true);
+        }
+
+        protected void tableRowRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+
         }
     }
 }
