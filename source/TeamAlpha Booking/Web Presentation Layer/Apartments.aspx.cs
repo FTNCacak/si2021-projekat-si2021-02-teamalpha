@@ -23,6 +23,7 @@ namespace Web_Presentation_Layer.Dashboard_Pages
 
         TextBox TB_NoDays;
         TextBox TB_CardNumber;
+        TextBox TB_Date;
 
         public Apartments(IApartmentBusiness _apartmentBusiness, IRentBusiness _rentBusiness, IUserBusiness _userBusiness)
         {
@@ -55,12 +56,14 @@ namespace Web_Presentation_Layer.Dashboard_Pages
             apartmentList = apartmentBusiness.GetAllApartments();
             cardRepeater.DataSource = apartmentList;
             cardRepeater.DataBind();
+            DataBind();
         }
 
         protected void cardRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             TB_NoDays = (TextBox)e.Item.FindControl("NoDays");
             TB_CardNumber = (TextBox)e.Item.FindControl("CardNumber");
+            TB_Date = (TextBox)e.Item.FindControl("Date");
 
             if(e.CommandName == "Rent")
             {
@@ -69,10 +72,11 @@ namespace Web_Presentation_Layer.Dashboard_Pages
 
                 if (!(selectedAppartment.Id_Korisnika == currentUser.Id_Korisnika)) // nije moguce iznajmiti sopstveni stan
                 {
-                    if (!(TB_NoDays.Text.Equals("") || TB_CardNumber.Text.Equals("")))
+                    if (!(TB_NoDays.Text.Equals("") || TB_CardNumber.Text.Equals("") || TB_Date.Text == ""))
                     {
                         int NoDays = Int32.Parse(TB_NoDays.Text);
                         string CardNumber = TB_CardNumber.Text;
+                        DateTime StartDate = DateTime.Parse(TB_Date.Text);
 
                         if (!(NoDays <= 0))
                         {
@@ -81,7 +85,7 @@ namespace Web_Presentation_Layer.Dashboard_Pages
                             {
                                 rent = new Rent
                                 {
-                                    Datum_pocetka = DateTime.Now,
+                                    Datum_pocetka = StartDate,
                                     Broj_dana = NoDays,
                                     Nacin_placanja = true,
                                     Broj_kartice = CardNumber,
