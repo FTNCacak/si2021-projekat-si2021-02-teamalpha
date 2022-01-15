@@ -14,5 +14,8 @@ namespace Shared.Interfaces
         int InsertRent(Rent rent);
         List<Rent> GetAllRents();
         List<Rent> GetUserRents(int UserID);
+
+        int DeleteRentByApartment(int apt_id);
+        int RemoveRent(int RentId);
     }
 }

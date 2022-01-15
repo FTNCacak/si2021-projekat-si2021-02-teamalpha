@@ -46,7 +46,7 @@ namespace Presentation_Layer
             this.UC_Overview = new Presentation_Layer.UserControls.Overview(this.userBusiness, this.apartmentBusiness, this.rentBusiness);
             this.UC_Rents = new Presentation_Layer.UserControls.Rents(this.rentBusiness, this.userBusiness);
             this.UC_Users = new Presentation_Layer.UserControls.Users(this.userBusiness);
-            this.UC_Apartments = new Presentation_Layer.UserControls.Apartments(this.apartmentBusiness);
+            this.UC_Apartments = new Presentation_Layer.UserControls.Apartments(this.apartmentBusiness, this.rentBusiness);
             this.panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();

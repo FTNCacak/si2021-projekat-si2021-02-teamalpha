@@ -104,5 +104,14 @@ namespace Data_Layer
                 return connection.Query<Rent>(dBQuery, new { Id = UserID }).ToList();
             }
         }
+
+        public int DeleteRentByApartment(int apt_id)
+        {
+            String dBQuery = "DELETE FROM Rente WHERE Id_Stana = @Id";
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                return connection.ExecuteScalar<int>(dBQuery, new { Id = apt_id });
+            }
+        }
     }
 }
