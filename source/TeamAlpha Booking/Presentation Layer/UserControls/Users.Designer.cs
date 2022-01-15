@@ -28,23 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label8 = new System.Windows.Forms.Label();
-            this.SuspendLayout();
-            // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Poppins Medium", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label8.Location = new System.Drawing.Point(41, 24);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(363, 48);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Korisnici";
-
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.label8 = new System.Windows.Forms.Label();
             this.userDGW = new System.Windows.Forms.DataGridView();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,6 +46,16 @@
             this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.userDGW)).BeginInit();
             this.SuspendLayout();
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Poppins Medium", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.label8.Location = new System.Drawing.Point(41, 24);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(363, 48);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Korisnici";
             // 
             // userDGW
             // 
@@ -114,8 +112,6 @@
             this.userDGW.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.userDGW.Size = new System.Drawing.Size(786, 478);
             this.userDGW.TabIndex = 8;
-            //this.userDGW.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.userDGW_CellContentClick);
-
             // 
             // Column1
             // 
@@ -180,9 +176,14 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(658, 27);
             this.label9.TabIndex = 10;
-            this.label9.Text = "Za ažuriranje zapisa klikni dva puta na željeni red.  Za brisanje zapisa selektuj" +
-    " red i stisni delete.";
-            
+            this.label9.Text = "Za brisanje zapisa selektuj red i stisni delete.";
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 0;
             // 
             // Users
             // 
@@ -195,6 +196,7 @@
             this.Name = "Users";
             this.Size = new System.Drawing.Size(786, 608);
             this.Load += new System.EventHandler(this.Users_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.userDGW)).EndInit();
             this.ResumeLayout(false);
 
         }
