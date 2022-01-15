@@ -43,17 +43,21 @@
                         <p class="lead my-1">Noćenje: <span class="fw-normal"><%#Eval("Cena_nocenja") %> € </span></p>                                 
                         <p class="lead my-1">Poštanski broj: <span class="fw-normal"><%#Eval("Postanski_broj") %></span></p>
                     </div>
-                    <div class="col-4 p-3">
-                        <h4 class="card-title me-4 mb-4">Iznajmljivanje</h4>
+                    <div class="col-4 p-3 px-1 pe-2">
+                        <h4 class="card-title  mb-4">Iznajmljivanje</h4>
                         <div class="row">
-                            <div class="col-2 mb-3">
-                            <label class="form-label">Dana</label>
-                            <asp:TextBox runat="server" ID="NoDays" CssClass="form-control d-inline"></asp:TextBox>
-                        </div>
-                        <div class="col-10 mb-3">
-                            <label class="form-label">Broj kartice</label>
-                            <asp:TextBox runat="server" ID="CardNumber" CssClass="form-control"></asp:TextBox>
-                        </div>
+                            <div class="col-2 mb-3 pe-1">
+                                <label class="form-label">Dana</label>
+                                <asp:TextBox runat="server" ID="NoDays" CssClass="form-control d-inline"></asp:TextBox>
+                            </div>
+                            <div class="col-5 mb-3 pe-1">
+                                <label class="form-label">Broj kartice</label>
+                                <asp:TextBox runat="server" ID="CardNumber" CssClass="form-control"></asp:TextBox>
+                            </div>
+                            <div class="col-5 mb-3 ps-1 pe-3">
+                                <label class="form-label">Datum</label>
+                                <asp:TextBox runat="server" ID="Date" TextMode="Date" Text='<%#DateTime.Now.ToString("{0:d}")%>' CssClass="form-control"></asp:TextBox>
+                            </div>
                         </div>
                         
                         <asp:LinkButton ID="btnRent" runat="server" CssClass="btn btn-primary w-100" CommandName="Rent" CommandArgument='<%# Eval("Id_Stana") %>' UseSubmitBehavior="false">Zakaži smeštaj</asp:LinkButton>
