@@ -47,5 +47,10 @@ namespace Business_Layer
         {
             return apartmentRepository.GetApartmentByID(ApartmentId);
         }
+
+        public int InsertApartment(Apartment apartment)
+        {
+            return apartmentRepository.InsertApartment(apartment);
+        }
     }
 }

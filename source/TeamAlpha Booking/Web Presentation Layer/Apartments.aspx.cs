@@ -67,57 +67,65 @@ namespace Web_Presentation_Layer.Dashboard_Pages
                 apartmentID = Int32.Parse(e.CommandArgument.ToString());
                 selectedAppartment = apartmentBusiness.GetApartmentByID(apartmentID);
 
-                if (!(TB_NoDays.Text.Equals("") || TB_CardNumber.Text.Equals("")))
+                if (!(selectedAppartment.Id_Korisnika == currentUser.Id_Korisnika)) // nije moguce iznajmiti sopstveni stan
                 {
-                    int NoDays = Int32.Parse(TB_NoDays.Text);
-                    string CardNumber = TB_CardNumber.Text;
-
-                    if (!(NoDays <= 0))
+                    if (!(TB_NoDays.Text.Equals("") || TB_CardNumber.Text.Equals("")))
                     {
-                        Rent rent;
-                        try
-                        {
-                            rent = new Rent
-                            {
-                                Datum_pocetka = DateTime.Now,
-                                Broj_dana = NoDays,
-                                Nacin_placanja = true,
-                                Broj_kartice = CardNumber,
-                                Id_Korisnika = currentUser.Id_Korisnika,
-                                Id_Stana = selectedAppartment.Id_Stana,
-                                Id_Stanodavca = selectedAppartment.Id_Korisnika,
-                            };
-                        }
-                        catch (Exception)
-                        {
-                            Session.Remove("currentUserEmail");
-                            Session.RemoveAll();
-                            Response.Redirect("Login.aspx");
-                            throw;
-                        }
+                        int NoDays = Int32.Parse(TB_NoDays.Text);
+                        string CardNumber = TB_CardNumber.Text;
 
-                        if (rentBusiness.InsertRent(rent) == 1)
+                        if (!(NoDays <= 0))
                         {
-                            Alert("Stan iznajmljen.");
-                            TB_NoDays.Text = "";
-                            TB_CardNumber.Text = "";
-                        }  
+                            Rent rent;
+                            try
+                            {
+                                rent = new Rent
+                                {
+                                    Datum_pocetka = DateTime.Now,
+                                    Broj_dana = NoDays,
+                                    Nacin_placanja = true,
+                                    Broj_kartice = CardNumber,
+                                    Id_Korisnika = currentUser.Id_Korisnika,
+                                    Id_Stana = selectedAppartment.Id_Stana,
+                                    Id_Stanodavca = selectedAppartment.Id_Korisnika,
+                                };
+                            }
+                            catch (Exception)
+                            {
+                                Session.Remove("currentUserEmail");
+                                Session.RemoveAll();
+                                Response.Redirect("Login.aspx");
+                                throw;
+                            }
+
+                            if (rentBusiness.InsertRent(rent) == 1)
+                            {
+                                Alert("Stan iznajmljen.");
+                                TB_NoDays.Text = "";
+                                TB_CardNumber.Text = "";
+                            }
+                            else
+                            {
+                                Alert("Nije moguće iznajmiti stan.");
+                            }
+                        }
                         else
                         {
-                            Alert("Nije moguće iznajmiti stan.");
+                            Alert("Broj dana mora biti veći od nula!");
                         }
                     }
+
                     else
                     {
-                        Alert("Broj dana mora biti veći od nula!");
-                    }                   
+                        Alert("Popuni sva polja!");
+                    }
                 }
-
-                else
+                else if (selectedAppartment.Id_Korisnika == currentUser.Id_Korisnika)
                 {
-                    Alert("Popuni sva polja!");
-                }             
+                    Alert("Nije moguće iznajmiti sopstveni stan!");
+                }
             }
+           
         }
 
         private void Alert(string message)
