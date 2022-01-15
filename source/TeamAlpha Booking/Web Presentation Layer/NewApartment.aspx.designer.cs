@@ -33,6 +33,15 @@ namespace Web_Presentation_Layer
         protected global::System.Web.UI.WebControls.TextBox inputAddress;
 
         /// <summary>
+        /// inputZipCode control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox inputZipCode;
+
+        /// <summary>
         /// inputNoRooms control.
         /// </summary>
         /// <remarks>
@@ -49,15 +58,6 @@ namespace Web_Presentation_Layer
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox inputSize;
-
-        /// <summary>
-        /// inputZipCode control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox inputZipCode;
 
         /// <summary>
         /// inputFloor control.
