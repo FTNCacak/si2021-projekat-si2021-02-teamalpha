@@ -16,13 +16,13 @@
     <title>AlphaBooking</title>
 
     <style>
-        #sidebar{
-  margin-right: 0;
-  position: sticky;
-  top: 0;
-  align-self: flex-start;
-  height: 100vh;
-}
+        #sidebar {
+            margin-right: 0;
+            position: sticky;
+            top: 0;
+            align-self: flex-start;
+            height: 100vh;
+        }
     </style>
 
     <asp:ContentPlaceHolder ID="head" runat="server">
