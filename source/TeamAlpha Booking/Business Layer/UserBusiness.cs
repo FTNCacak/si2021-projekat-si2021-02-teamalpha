@@ -65,5 +65,10 @@ namespace Business_Layer
         {
             return userRepo.GetUserCount();
         }
+
+        public string GetUserNameById(int userId)
+        {
+            return userRepo.GetUserNameById(userId);
+        }
     }
 }

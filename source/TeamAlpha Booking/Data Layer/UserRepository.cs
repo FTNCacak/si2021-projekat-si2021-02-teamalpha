@@ -123,6 +123,14 @@ namespace Data_Layer
                 return connection.ExecuteScalar<int>("SELECT COUNT(*) FROM Korisnici");
             }
         }
+
+        public string GetUserNameById(int userId)
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                return connection.ExecuteScalar<string>("SELECT Ime+' '+Prezime FROM Korisnici WHERE Id_Korisnika = @Id", new { Id = userId });
+            }
+        }
     }
 }
 

@@ -43,6 +43,7 @@ namespace Presentation_Layer
             services.AddScoped<IRentBusiness, RentBusiness>();
             services.AddScoped<IApartmentBusiness, ApartmentBusiness>();
 
+            services.AddScoped<UserControls.Rents>();
             services.AddScoped<UserControls.Overview>();
             services.AddScoped<MainForm>();
 
