@@ -113,5 +113,14 @@ namespace Data_Layer
                 return connection.ExecuteScalar<int>(dBQuery, new { Id = apt_id });
             }
         }
+
+        public int DeleteRentByUserOrLandlord(int user_id)
+        {
+            String dBQuery = "DELETE FROM Rente WHERE Id_Korisnika = @Id OR Id_Stanodavca = @Id";
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                return connection.ExecuteScalar<int>(dBQuery, new { Id = user_id });
+            }
+        }
     }
 }

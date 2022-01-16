@@ -56,5 +56,10 @@ namespace Business_Layer
         {
             return rentRepo.DeleteRentByApartment(apt_id);
         }
+
+        public int DeleteRentByUserOrLandlord(int user_id)
+        {
+            return rentRepo.DeleteRentByUserOrLandlord(user_id);
+        }
     }
 }

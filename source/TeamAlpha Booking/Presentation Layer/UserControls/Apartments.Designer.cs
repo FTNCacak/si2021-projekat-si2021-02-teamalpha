@@ -199,7 +199,7 @@ namespace Presentation_Layer.UserControls
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(987, 42);
             this.label9.TabIndex = 10;
-            this.label9.Text = "Za brisanje zapisa selektuj red i stisni delete.";
+            this.label9.Text = "Za brisanje zapisa selektuj red i stisni Obrisati.";
             // 
             // label1
             // 
@@ -226,7 +226,7 @@ namespace Presentation_Layer.UserControls
             this.buttonDelete.Name = "buttonDelete";
             this.buttonDelete.Size = new System.Drawing.Size(244, 86);
             this.buttonDelete.TabIndex = 11;
-            this.buttonDelete.Text = "Delete";
+            this.buttonDelete.Text = "Obrisati";
             this.buttonDelete.UseVisualStyleBackColor = false;
             this.buttonDelete.MouseClick += new System.Windows.Forms.MouseEventHandler(this.buttonDelete_Click);
             // 
