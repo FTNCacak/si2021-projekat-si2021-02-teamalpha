@@ -77,7 +77,7 @@ namespace Presentation_Layer
         {
             currentBtnSelection.Location = new Point { X = 0, Y = 122 };
             ActivateButton(btnUsers);
-
+            UC_Users.initializeDGW();
             UC_Users.BringToFront();
         }
 
@@ -85,7 +85,7 @@ namespace Presentation_Layer
         {
             currentBtnSelection.Location = new Point { X = 0, Y = 182 };
             ActivateButton(btnApartments);
-
+            UC_Apartments.initializeDGW();
             UC_Apartments.BringToFront();        
         }
 
@@ -93,7 +93,7 @@ namespace Presentation_Layer
         {
             currentBtnSelection.Location = new Point { X = 0, Y = 242 };
             ActivateButton(btnRents);
-
+            UC_Rents.initializeDGW();
             UC_Rents.BringToFront();
         }
 

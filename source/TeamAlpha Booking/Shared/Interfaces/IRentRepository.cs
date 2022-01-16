@@ -17,5 +17,6 @@ namespace Shared.Interfaces
         decimal CalculateRevenue();
         List<Rent> GetUserRents(int UserID);
         int DeleteRentByApartment(int apt_id);
+        int DeleteRentByUserOrLandlord(int user_id);
     }
 }

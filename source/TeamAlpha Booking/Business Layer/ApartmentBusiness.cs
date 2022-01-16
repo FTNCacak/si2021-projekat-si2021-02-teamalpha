@@ -52,5 +52,10 @@ namespace Business_Layer
         {
             return apartmentRepository.InsertApartment(apartment);
         }
+
+        public int RemoveApartmentByUser(int user_id)
+        {
+            return apartmentRepository.RemoveApartmentByUser(user_id);
+        }
     }
 }

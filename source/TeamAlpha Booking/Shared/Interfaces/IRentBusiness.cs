@@ -17,5 +17,6 @@ namespace Shared.Interfaces
 
         int DeleteRentByApartment(int apt_id);
         int RemoveRent(int RentId);
+        int DeleteRentByUserOrLandlord(int user_id);
     }
 }
