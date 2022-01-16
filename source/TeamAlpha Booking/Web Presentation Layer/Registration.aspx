@@ -80,7 +80,7 @@
                                     <div class="d-grid mb-2">                                        
                                         <asp:LinkButton ID="RegisterBtn" runat="server" CssClass="btn btn-lg btn-primary btn-login fw-bold text-uppercase" OnClick="RegisterBtn_Click">Otvori nalog</asp:LinkButton>
                                     </div>
-                                    <a class="d-block text-center mt-2 small" href="#">Imaš nalog? Prijavi se</a>
+                                    <a class="d-block text-center mt-2 small" href="Login.aspx">Imaš nalog? Prijavi se</a>
                                 </div>
                             </div>
                         </div>

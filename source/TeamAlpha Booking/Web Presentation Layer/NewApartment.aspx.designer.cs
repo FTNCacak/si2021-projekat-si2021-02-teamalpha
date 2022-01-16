@@ -11,79 +11,97 @@ namespace Web_Presentation_Layer
 {
 
 
-    public partial class Dashboard
+    public partial class NewApartment
     {
 
         /// <summary>
-        /// form1 control.
+        /// inputPlace control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox inputPlace;
 
         /// <summary>
-        /// Label1 control.
+        /// inputAddress control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.TextBox inputAddress;
 
         /// <summary>
-        /// labelUserID control.
+        /// inputZipCode control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelUserID;
+        protected global::System.Web.UI.WebControls.TextBox inputZipCode;
 
         /// <summary>
-        /// Label2 control.
+        /// inputNoRooms control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.TextBox inputNoRooms;
 
         /// <summary>
-        /// labelUserEmail control.
+        /// inputSize control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelUserEmail;
+        protected global::System.Web.UI.WebControls.TextBox inputSize;
 
         /// <summary>
-        /// Label3 control.
+        /// inputFloor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.TextBox inputFloor;
 
         /// <summary>
-        /// labelUserFirstname control.
+        /// inputNightPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label labelUserFirstname;
+        protected global::System.Web.UI.WebControls.TextBox inputNightPrice;
 
         /// <summary>
-        /// Button1 control.
+        /// inputDeposit control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.TextBox inputDeposit;
+
+        /// <summary>
+        /// AddApartmentBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton AddApartmentBtn;
+
+        /// <summary>
+        /// tableRowRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater tableRowRepeater;
     }
 }

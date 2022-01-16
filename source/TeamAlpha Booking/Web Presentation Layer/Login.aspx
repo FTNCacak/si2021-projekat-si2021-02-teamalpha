@@ -13,7 +13,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
     <link href="CSS/style.css" rel="stylesheet" />
 
-    <title>Prijava</title>
+    <title>AlphaBooking | Prijava</title>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -34,6 +34,7 @@
                     </div>
                 </div>
             </nav>
+
             <!-- LOGIN SECTION -->
             <div class="container" ">
                 <div class="row align-items-center" style="height: 90vh">
@@ -51,9 +52,9 @@
                                         <label for="floatingPassword">Lozinka</label>
                                     </div>                                       
                                     <div class="d-grid mb-2">                                        
-                                        <asp:LinkButton ID="LoginBtn" runat="server" CssClass="btn btn-lg btn-primary btn-login fw-bold text-uppercase" OnClick="LoginBtn_Click">Otvori nalog</asp:LinkButton>
+                                        <asp:LinkButton ID="LoginBtn" runat="server" CssClass="btn btn-lg btn-primary btn-login fw-bold text-uppercase" OnClick="LoginBtn_Click">Prijavi se</asp:LinkButton>
                                     </div>
-                                    <a class="d-block text-center mt-3 small" href="Register.aspx">Registruj novi nalog</a>
+                                    <a class="d-block text-center mt-3 small" href="Registration.aspx">Registruj novi nalog</a>
                                 </div>
                             </div>
                         </div>

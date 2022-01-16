@@ -79,5 +79,48 @@ namespace Data_Layer
                 return connection.Execute(DeleteQuery, new { Id = RentId });
             }
         }
+
+        public int GetRentCount()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                return connection.ExecuteScalar<int>("SELECT COUNT(*) FROM Rente");
+            }
+        }
+
+        public decimal CalculateRevenue()
+        {
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                return connection.ExecuteScalar<Decimal>("SELECT SUM(Rente.Broj_dana*Stanovi.Cena_nocenja) FROM Rente JOIN Stanovi ON Rente.Id_Stana=Stanovi.Id_Stana");
+            }
+        }
+
+        public List<Rent> GetUserRents(int UserID)
+        {
+            String dBQuery = "SELECT * FROM Rente r WHERE r.Id_Korisnika = @Id";
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                return connection.Query<Rent>(dBQuery, new { Id = UserID }).ToList();
+            }
+        }
+
+        public int DeleteRentByApartment(int apt_id)
+        {
+            String dBQuery = "DELETE FROM Rente WHERE Id_Stana = @Id";
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                return connection.ExecuteScalar<int>(dBQuery, new { Id = apt_id });
+            }
+        }
+
+        public int DeleteRentByUserOrLandlord(int user_id)
+        {
+            String dBQuery = "DELETE FROM Rente WHERE Id_Korisnika = @Id OR Id_Stanodavca = @Id";
+            using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))
+            {
+                return connection.ExecuteScalar<int>(dBQuery, new { Id = user_id });
+            }
+        }
     }
 }

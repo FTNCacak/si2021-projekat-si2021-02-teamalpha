@@ -18,5 +18,7 @@ namespace Shared.Interfaces
 
         string GetPassByEmail(string email);
         User GetUserByEmail(string email);
+        int GetUserCount();
+        string GetUserNameById(int userId);
     }
 }

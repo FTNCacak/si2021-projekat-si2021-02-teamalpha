@@ -118,6 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="label9.Text" xml:space="preserve">
-    <value>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Luctus accumsan tortor posuere ac ut. Feugiat in ante metus dictum at tempor commodo.</value>
+    <value>Dobrodošao na admin panel. Ovde možeš pregledati statistiku vezanu za trenutni broj korisnika, oglasa, renti kao i ukupan promet na platformi. Svaka kartica sadrži odgovarajuću vrednost koja oslikava trenutno stanje.</value>
   </data>
 </root>

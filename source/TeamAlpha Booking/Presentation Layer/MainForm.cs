@@ -17,12 +17,16 @@ namespace Presentation_Layer
     public partial class MainForm : Form
     {
         readonly IUserBusiness userBusiness;
+        readonly IApartmentBusiness apartmentBusiness;
+        readonly IRentBusiness rentBusiness;
         bool mouseDown;
         private Point offset;
 
-        public MainForm(IUserBusiness _userBusiness)
+        public MainForm(IUserBusiness _userBusiness, IApartmentBusiness _apartmentBusiness, IRentBusiness _rentBusiness)
         {
             userBusiness = _userBusiness;
+            rentBusiness = _rentBusiness;
+            apartmentBusiness = _apartmentBusiness;
             InitializeComponent();
         }
 
@@ -47,6 +51,7 @@ namespace Presentation_Layer
             ActivateButton(btnDashboard);
 
             UC_Overview.BringToFront();
+            UC_Overview.UpdateLabels();
         }
 
 
@@ -72,7 +77,7 @@ namespace Presentation_Layer
         {
             currentBtnSelection.Location = new Point { X = 0, Y = 122 };
             ActivateButton(btnUsers);
-
+            UC_Users.initializeDGW();
             UC_Users.BringToFront();
         }
 
@@ -80,7 +85,7 @@ namespace Presentation_Layer
         {
             currentBtnSelection.Location = new Point { X = 0, Y = 182 };
             ActivateButton(btnApartments);
-
+            UC_Apartments.initializeDGW();
             UC_Apartments.BringToFront();        
         }
 
@@ -88,7 +93,7 @@ namespace Presentation_Layer
         {
             currentBtnSelection.Location = new Point { X = 0, Y = 242 };
             ActivateButton(btnRents);
-
+            UC_Rents.initializeDGW();
             UC_Rents.BringToFront();
         }
 
@@ -132,6 +137,17 @@ namespace Presentation_Layer
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void MainForm_Activated(object sender, EventArgs e)
+        {
+            if (this.WindowState == FormWindowState.Minimized)
+                this.Hide();
+            this.BeginInvoke(new Action(() =>
+            {
+                if (this.WindowState != FormWindowState.Minimized && !Visible)
+                    this.Show();
+            }));
         }
     }
 }

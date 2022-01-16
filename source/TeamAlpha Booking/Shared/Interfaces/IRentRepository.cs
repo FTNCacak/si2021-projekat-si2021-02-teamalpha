@@ -13,5 +13,10 @@ namespace Shared.Interfaces
         List<Rent> GetAllRents();
         int UpdateRentData(Rent rent);
         int RemoveRent(int RentId);
+        int GetRentCount();
+        decimal CalculateRevenue();
+        List<Rent> GetUserRents(int UserID);
+        int DeleteRentByApartment(int apt_id);
+        int DeleteRentByUserOrLandlord(int user_id);
     }
 }
