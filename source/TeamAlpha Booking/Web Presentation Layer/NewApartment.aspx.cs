@@ -92,7 +92,9 @@ namespace Web_Presentation_Layer
                     Alert("Oglas uspešno postavljen!");
                     inputAddress.Text = inputNoRooms.Text = inputSize.Text = inputZipCode.Text = inputFloor.Text =
                     inputNightPrice.Text = inputDeposit.Text = "";
-                    
+
+                    Response.Redirect("NewApartment.aspx"); // onemogucava dodavanje istog stana pri reloadovanju stranice
+
                 }
 
                 else

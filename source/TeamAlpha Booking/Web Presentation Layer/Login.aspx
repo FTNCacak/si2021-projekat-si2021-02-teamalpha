@@ -54,7 +54,7 @@
                                     <div class="d-grid mb-2">                                        
                                         <asp:LinkButton ID="LoginBtn" runat="server" CssClass="btn btn-lg btn-primary btn-login fw-bold text-uppercase" OnClick="LoginBtn_Click">Prijavi se</asp:LinkButton>
                                     </div>
-                                    <a class="d-block text-center mt-3 small" href="Register.aspx">Registruj novi nalog</a>
+                                    <a class="d-block text-center mt-3 small" href="Registration.aspx">Registruj novi nalog</a>
                                 </div>
                             </div>
                         </div>

@@ -95,7 +95,8 @@ namespace Presentation_Layer.UserControls
             this.apartmentDGW.DefaultCellStyle = dataGridViewCellStyle11;
             this.apartmentDGW.EnableHeadersVisualStyles = false;
             this.apartmentDGW.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.apartmentDGW.Location = new System.Drawing.Point(0, 200);
+            this.apartmentDGW.Location = new System.Drawing.Point(0, 130);
+            this.apartmentDGW.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.apartmentDGW.MultiSelect = false;
             this.apartmentDGW.Name = "apartmentDGW";
             this.apartmentDGW.ReadOnly = true;
@@ -107,7 +108,7 @@ namespace Presentation_Layer.UserControls
             this.apartmentDGW.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.apartmentDGW.RowTemplate.Height = 31;
             this.apartmentDGW.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.apartmentDGW.Size = new System.Drawing.Size(1179, 735);
+            this.apartmentDGW.Size = new System.Drawing.Size(786, 478);
             this.apartmentDGW.TabIndex = 8;
             this.apartmentDGW.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.apartmentDGW_CellContentClick);
             // 
@@ -194,21 +195,19 @@ namespace Presentation_Layer.UserControls
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label9.Location = new System.Drawing.Point(69, 123);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Location = new System.Drawing.Point(46, 80);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(987, 42);
+            this.label9.Size = new System.Drawing.Size(658, 27);
             this.label9.TabIndex = 10;
             this.label9.Text = "Za brisanje zapisa selektuj red i stisni Obrisati.";
             // 
             // label1
             // 
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
+            this.label1.Font = new System.Drawing.Font("Poppins Medium", 21.75F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.label1.Location = new System.Drawing.Point(62, 37);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(41, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(544, 74);
+            this.label1.Size = new System.Drawing.Size(363, 48);
             this.label1.TabIndex = 9;
             this.label1.Text = "Oglasi";
             // 
@@ -219,12 +218,13 @@ namespace Presentation_Layer.UserControls
             this.buttonDelete.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.buttonDelete.FlatAppearance.BorderSize = 0;
             this.buttonDelete.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
-            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonDelete.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.buttonDelete.Location = new System.Drawing.Point(873, 79);
+            this.buttonDelete.Location = new System.Drawing.Point(582, 43);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(244, 86);
+            this.buttonDelete.Size = new System.Drawing.Size(163, 56);
             this.buttonDelete.TabIndex = 11;
             this.buttonDelete.Text = "Obrisati";
             this.buttonDelete.UseVisualStyleBackColor = false;
@@ -232,16 +232,15 @@ namespace Presentation_Layer.UserControls
             // 
             // Apartments
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(42)))), ((int)(((byte)(42)))));
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.apartmentDGW);
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Apartments";
-            this.Size = new System.Drawing.Size(1179, 935);
+            this.Size = new System.Drawing.Size(786, 608);
             this.Load += new System.EventHandler(this.Apartments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.apartmentDGW)).EndInit();
             this.ResumeLayout(false);
