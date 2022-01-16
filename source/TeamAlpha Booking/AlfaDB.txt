@@ -1,4 +1,4 @@
-# Tabela Korisnici :
+-- Tabela Korisnici :
 
 
 CREATE TABLE [dbo].[Korisnici] (
@@ -14,7 +14,7 @@ CREATE TABLE [dbo].[Korisnici] (
 );
 
 
-# Tabela Stanovi : 
+-- Tabela Stanovi : 
 
 
 CREATE TABLE [dbo].[Stanovi] (
@@ -33,7 +33,7 @@ CREATE TABLE [dbo].[Stanovi] (
 );
 
 
-# Tabela Rente :
+-- Tabela Rente :
 
 
 CREATE TABLE [dbo].[Rente] (
@@ -50,10 +50,10 @@ CREATE TABLE [dbo].[Rente] (
 	CONSTRAINT [FK_Stanovi] FOREIGN KEY ([Id_Stana],[Id_Stanodavca]) REFERENCES Stanovi ([Id_Stana], [Id_Korisnika])
 );
 
-## PROBNI PODACI ZA TESTIRANJE : ##
+-- PROBNI PODACI ZA TESTIRANJE : ##
 
 
-# Tabela Korisnici :
+-- Tabela Korisnici :
 
 
 SET IDENTITY_INSERT [dbo].[Korisnici] ON
@@ -64,7 +64,7 @@ INSERT INTO [dbo].[Korisnici] ([Id_Korisnika], [Lozinka], [Ime], [Prezime], [Ema
 SET IDENTITY_INSERT [dbo].[Korisnici] OFF
 
 
-# Tabela Stanovi : 
+-- Tabela Stanovi : 
 
 
 SET IDENTITY_INSERT [dbo].[Stanovi] ON
@@ -75,7 +75,7 @@ INSERT INTO [dbo].[Stanovi] ([Id_Stana], [Mesto], [Adresa], [Broj_soba], [Kvadra
 SET IDENTITY_INSERT [dbo].[Stanovi] OFF
 
 
-# Tabela Rente :
+-- Tabela Rente :
 
 
 SET IDENTITY_INSERT [dbo].[Rente] ON
