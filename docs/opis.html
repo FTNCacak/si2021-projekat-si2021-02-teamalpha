@@ -38,6 +38,12 @@
         <div class="menu-item">
           <a href="#5"><h3>5. Uspostavljanje konekcije s bazom podataka</h3></a>
         </div>
+        <div class="menu-item">
+          <a href="#6"><h3>6. Javni interfejsi</h3></a>
+        </div>
+        <div class="menu-item">
+          <a href="#7"><h3>7. Biznis sloj</h3></a>
+        </div>
       </aside>
       <section id="main-content">
         <h1 class="heading-b" id="uvod">
@@ -81,17 +87,13 @@
           dostupne dve mogućnosti: iznajmljivanje apartmana, u svojstvu vlasnika
           nekretnine i u svojstvu iznajmljivača. Korisnik će moći da pregleda
           listu dostupnih stambenih prostora za iznajmljivanje, kao i da kreira
-          svoj listing (uz naknadne procese verifikacije).
+          svoj listing (ukoliko je registrovan kao stanodavac).
         </p>
 
         <p>
-          Korisniku je neophodno omogućiti funkcionalnosti kao što su pretraga
-          apartmana po lokaciji, sortiranje po raznim kriterijumima kao što su
-          cena, datum dostupnosti, broju soba, kreveta, dostupnosti interneta,
-          itd. Korisnik koji želi da iznajmi određeni prostor, mora ući u sam
-          listing, odabrati dane u kojima želi da zakaže prostor, nakon čega će
-          biti obavešten o ceni, i odabrati jednu od različitih formi za
-          plaćanje (PayPal, kreditna/debitna kartica).
+          Korisnik može izabrati željeni smeštaj, odabrati datum početka kao i broj dana.
+          Prilikom iznajmljivanja stana korisnik mora uneti broj svoje platne kartice za plaćanje smeštaja.
+          Nakon unosa podataka i iznajmljivanja stana, izabrani stan će biti dodat u listu renti sa odgovarajućim podacima.
         </p>
 
         <p>
@@ -103,22 +105,9 @@
         </p>
 
         <p>
-          Nakon što korisnik uspešno plati rentu i iznajmi stambeni prostor,
-          partner stanodavac mora biti obavešten o toj transakciji i novac mu
-          mora biti prosleđen u digitalni novčanik, odakle može novac prebaciti
-          na svoj račun.
+          Implementiran je multi-user sistem koji omogućava kreiranje korisničkih profila i učitavanje podataka na osnovu trenutno prijavljenog korisnika na sistem.
         </p>
-
-        <p>Dodatne funkcionalinosti:</p>
-        <ul>
-          <li>Otkazivanje rente (s određenim kriterijumima)</li>
-          <li>Pomeranje rente</li>
-          <li>Zahtev za refundiranje novca</li>
-          <li>
-            Recenzije korisnika i stanodavca, kao i sistem bodovanja (1-5)
-          </li>
-        </ul>
-
+        
         <hr />
 
         <h3 id="2">2. Konceptualni model podataka projekta</h3>
@@ -359,12 +348,80 @@
             &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@PhoneNumber&quot;</span>, <span id="var">user</span>.<span id="type">Broj_telefona</span>);<br>
             &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@BirthDate&quot;</span>, <span id="var">user</span>.<span id="type">Datum_rodjenja</span>);<br>
             &nbsp;&nbsp;&nbsp;&nbsp;<span id="var">QueryParameters</span>.<span id="type">Add</span>(<span id="string">&quot;@Role&quot;</span>, <span id="var">user</span>.<span id="type">Stanodavac</span>);<br>
-                <br>
+            <br>
             &nbsp;&nbsp;&nbsp;&nbsp;<span id="keyword">return</span> <span id="var">connection</span>.<span id="type">Execute</span>(<span id="var">InsertQuery, QueryParameters</span>); <span id="comment"> // Execute method provided by Dapper</span><br>
             &nbsp;&nbsp;}<br>
             }<br>
           </div>
         </p>
+
+        <h3 id="6">6. Javni Interfejsi</h3>
+        <p>
+          Projekat sadrži šest interfejsa, po tri za biznis i data sloj. Interejsi su smešteni u Shared.Interfaces folder.
+          
+          <h4>Data layer</h4> 
+          <code> UserRepositry : IUserRepository
+           <br> ApartmentRepositry : IApartmentRepository
+           <br> RentRepositry : IRentRepository
+          </code>
+                  
+          <h4 class="mt-10">Business layer</h4> 
+          <code> UserBusiness : IUserBusiness
+           <br> ApartmentBusiness : IApartmentBusiness
+           <br> RentBusiness : IRentBusiness
+          </code>
+
+          <h4 class="mt-10">IUserRepository - primer interfejsa</h4>
+          <code>          
+            public interface IUserRepository
+            {
+              <pre>
+  int InsertUser(User user);
+  List<User> GetAllUsers();
+  int UpdateUserData(User UpdatedUser);
+  int RemoveUser(int UserId);
+
+  Boolean EmailExists(string email);
+
+  string GetPassByEmail(string email);
+  User GetUserByEmail(string email);
+  int GetUserCount();
+  string GetUserNameById(int userId);
+}       </pre>
+          </code>
+        </p>
+        <h3 id="7">7. Biznis sloj</h3>
+        <p>
+          Biznis sloj sadrži tri klase koje komuniciraju sa data slojem i obavljaju različite funkcionalnosti poput registracije novih korisnika, prijavljivanje korisnika na sistem itd.
+        </p>
+        <h4 class="mt-10">Primeri metoda UserBusiness klase</h4>
+        <code>          
+          public int RegisterUser(User user) // pass validated instance
+          {
+          <pre>
+      String email = user.Email;
+
+      if (!userRepo.EmailExists(email))
+      { // check if entered email is unique  
+          return userRepo.InsertUser(user); //insert new user into db
+      }
+
+      return -1;
+}          </pre>
+        </code>
+        <br>
+        <code>          
+public Boolean CheckPassword(string email, string password)
+{
+            <pre>
+  if (userRepo.EmailExists(email))
+  {
+      return password.Equals(userRepo.GetPassByEmail(email));
+  }
+  return false;
+}        </pre>
+        </code>
+        <h3 id="8">8. Prezentacioni sloj</h3>
       </section>
     </div>
   </body>
