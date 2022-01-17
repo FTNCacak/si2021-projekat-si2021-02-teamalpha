@@ -12,6 +12,7 @@ namespace UserBusinessTest
     public class UserBusinessTests
     {
         private Mock<IUserRepository> mockUserRepository = new Mock<IUserRepository>();
+        
         private UserBusiness userBusiness;
         private List<User> listOfUsers = new List<User>();
 
