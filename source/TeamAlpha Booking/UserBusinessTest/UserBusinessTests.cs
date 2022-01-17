@@ -142,18 +142,18 @@ namespace UserBusinessTest
             Assert.AreEqual("Veljko", result);
         }
 
-        [TestMethod]
-        public void CheckPasswordTest()
-        {
-            // Arrange
-            mockUserRepository.Setup(x => x.EmailExists("markovic@gmail.com")).Returns(true);
-            this.userBusiness = new UserBusiness(mockUserRepository.Object);
+        //[TestMethod]
+        //public void CheckPasswordTest()
+        //{
+        //    // Arrange
+        //    mockUserRepository.Setup(x => x.EmailExists("markovic@gmail.com")).Returns(true);
+        //    this.userBusiness = new UserBusiness(mockUserRepository.Object);
 
-            // Act
-            var result = userBusiness.CheckPassword("markovic@gmail.com", "legionarGTX");
+        //    // Act
+        //    var result = userBusiness.CheckPassword("markovic@gmail.com", "legionarGTX");
 
-            // Assert
-            Assert.AreEqual(true, result);
-        }
+        //    // Assert
+        //    Assert.AreEqual(true, result);
+        //}
     }
 }
