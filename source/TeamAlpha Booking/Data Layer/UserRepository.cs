@@ -87,8 +87,7 @@ namespace Data_Layer
                 QueryParameters.Add("@Email", email);
 
                 return ((Int32)connection.ExecuteScalar(dBQuery, QueryParameters) > 0 ? true : false);
-            }
-            
+            }           
         }
 
         public string GetPassByEmail(string email)
@@ -113,9 +112,7 @@ namespace Data_Layer
                 return connection.Query<User>(dBQuery, new { Email = email}).First();
             }
         }
-
        
-        
         public int GetUserCount()
         {
             using (SqlConnection connection = new SqlConnection(ConnectionStringProvider.GetConnectionString("AlphaBookingDB")))

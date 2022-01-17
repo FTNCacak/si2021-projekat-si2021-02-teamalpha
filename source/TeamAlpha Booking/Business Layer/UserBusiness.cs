@@ -38,7 +38,6 @@ namespace Business_Layer
                 return password.Equals(userRepo.GetPassByEmail(email));
             }
             return false;
-
         }
 
         public List<User> GetAllUsers()
