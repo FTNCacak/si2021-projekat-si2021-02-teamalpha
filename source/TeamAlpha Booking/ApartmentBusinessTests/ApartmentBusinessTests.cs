@@ -76,7 +76,91 @@ namespace ApartmentBusinessTests
             Assert.AreEqual(3, result.Count);
         }
 
-        
+        [TestMethod]
+        public void IsApartmentUpdated()
+        {
+            // Arrange
+            mockApartmentRepository.Setup(x => x.UpdateApartmentData(apartment)).Returns(1);
+            this.apartmentBusiness = new ApartmentBusiness(mockApartmentRepository.Object);
+
+            // Act
+            var result = apartmentBusiness.UpdateApartment(apartment);
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void IsApartmentRemoved()
+        {
+            // Arrange
+            mockApartmentRepository.Setup(x => x.RemoveApartment(apartment.Id_Stana)).Returns(1);
+            this.apartmentBusiness = new ApartmentBusiness(mockApartmentRepository.Object);
+
+            // Act
+            var result = apartmentBusiness.RemoveApartment(apartment.Id_Stana);
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void IsApartmentInserted()
+        {
+            // Arrange
+            mockApartmentRepository.Setup(x => x.InsertApartment(apartment3)).Returns(1);
+            this.apartmentBusiness = new ApartmentBusiness(mockApartmentRepository.Object);
+
+            // Act
+            var result = apartmentBusiness.InsertApartment(apartment3);
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+        [TestMethod]
+        public void GetApartmentCountTest()
+        {
+            // Arrange
+            mockApartmentRepository.Setup(x => x.GetApartmentCount()).Returns(3);
+            this.apartmentBusiness = new ApartmentBusiness(mockApartmentRepository.Object);
+
+            // Act
+            var result = apartmentBusiness.GetApartmentCount();
+
+            // Assert
+            Assert.AreEqual(3, result);
+        }
+
+        [TestMethod]
+        public void GetApartmentByIdTest()
+        {
+            // Arrange
+            mockApartmentRepository.Setup(x => x.GetApartmentByID(apartment2.Id_Stana)).Returns(apartment2);
+            this.apartmentBusiness = new ApartmentBusiness(mockApartmentRepository.Object);
+
+            // Act
+            var result = apartmentBusiness.GetApartmentByID(apartment2.Id_Stana);
+
+            // Assert
+            Assert.AreEqual(apartment2, result);
+        }
+
+        [TestMethod]
+        public void RemoveApartmentByUser()
+        {
+            // Arrange
+            mockApartmentRepository.Setup(x => x.RemoveApartmentByUser(apartment2.Id_Korisnika)).Returns(1);
+            this.apartmentBusiness = new ApartmentBusiness(mockApartmentRepository.Object);
+
+            // Act
+            var result = apartmentBusiness.RemoveApartmentByUser(apartment2.Id_Korisnika);
+
+            // Assert
+            Assert.AreEqual(1, result);
+        }
+
+
 
     }
 }
